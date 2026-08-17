@@ -11,8 +11,7 @@ Scraper collectors and datasets for Apple Human Interface Guidelines (HIG) built
 4. `scraper/output/onboarding.json` (Onboarding guidelines, 6 sections)
 5. `scraper/output/app-icons.json` (App icons guidelines, 12 sections)
 
-## Bright Data KYC & Compliance Disclosure Stub
+## Bright Data & Compliance Disclosure Stub
 
-- **KYC Status**: Pending verification on Bright Data account (plan cloud deployment and proxy pool testing tomorrow accordingly).
-- **Execution Mode**: Local Node collector (`scraper/collector.js`) uses direct HTTPS endpoint parsing to ensure fast, reliable local dataset generation without proxy auth blocking.
+- **Execution Mode**: Collector scripts support both Bright Data Scraper Studio IDE (`interaction.js`, `parser.js`) and local Node.js execution (`collector.js`).
 - **Compliance Note**: All extracted content originates from publicly accessible Apple Developer documentation (`https://developer.apple.com/design/human-interface-guidelines/`) for educational, design analysis, and compliance checking purposes.
