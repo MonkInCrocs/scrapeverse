@@ -1,107 +1,56 @@
 {
+  "page": "onboarding",
   "url": "https://developer.apple.com/design/human-interface-guidelines/onboarding",
-  "title": "Onboarding",
-  "extracted_at": "2026-08-18T04:17:51.691Z",
-  "rendering_mode": "browser-based",
-  "sections_count": 7,
   "sections": [
     {
-      "section_heading": "Overview",
-      "description_text": "Ideally, people can understand your app or game simply by experiencing it, but if onboarding is necessary, design a flow that’s fast, fun, and optional. When available, onboarding occurs after launching is complete — it isn’t part of the launch experience.",
+      "heading": "Overview",
+      "description": "Ideally, people can understand your app or game simply by experiencing it, but if onboarding is necessary, design a flow that’s fast, fun, and optional. When available, onboarding occurs after launching is complete — it isn’t part of the launch experience.",
       "guidance": []
     },
     {
-      "section_heading": "Best practices",
-      "description_text": "",
+      "heading": "Best practices",
+      "description": "",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "Teach through interactivity.",
-          "details": "Teach through interactivity. People tend to grasp and retain information better when they can actually perform the task they’re learning about instead of just viewing instructional material. As much as possible, provide an interactive onboarding experience where people can safely test an action, discover a feature, or try out a game mechanic."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Consider providing a collection of context-specific tips instead of a single onboarding flow.",
-          "details": "Consider providing a collection of context-specific tips instead of a single onboarding flow. Integrating contextually relevant tips into your experience can help people learn about their current task while they make progress in your app or game. A context-specific tip can also help people learn better because it lets them concentrate on a single action or task before encountering new information. When you have instructional content that refers to a specific area of the interface, display these instructions near that area. For developer guidance, see TipKit."
-        },
-        {
-          "type": "Guidance",
-          "rule": "If you need to present a prerequisite onboarding flow, design a brief, enjoyable experience that doesn’t require people to memorize a lot of information.",
-          "details": "If you need to present a prerequisite onboarding flow, design a brief, enjoyable experience that doesn’t require people to memorize a lot of information. When onboarding is quick and entertaining, people are more likely to complete it. In contrast, if you try to teach too much, people can feel overwhelmed and may be less likely to remember what they learned."
-        },
-        {
-          "type": "Guidance",
-          "rule": "If it makes sense to offer a separate tutorial, consider making it optional.",
-          "details": "If it makes sense to offer a separate tutorial, consider making it optional. If you let people skip the tutorial when they first launch your app or game, don’t present it again on subsequent launches, but make sure it’s easy for people to find if they want to view it later. For example, you could make the tutorial available in a help, account, or settings area within your app or game."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Keep onboarding content focused on the experience you provide.",
-          "details": "Keep onboarding content focused on the experience you provide. People enter your onboarding flow to learn about your app or game; they don’t need to learn how to use the system or the device."
-        }
+        "Guidance: Teach through interactivity. People tend to grasp and retain information better when they can actually perform the task they’re learning about instead of just viewing instructional material. As much as possible, provide an interactive onboarding experience where people can safely test an action, discover a feature, or try out a game mechanic.",
+        "Guidance: Consider providing a collection of context-specific tips instead of a single onboarding flow. Integrating contextually relevant tips into your experience can help people learn about their current task while they make progress in your app or game. A context-specific tip can also help people learn better because it lets them concentrate on a single action or task before encountering new information. When you have instructional content that refers to a specific area of the interface, display these instructions near that area. For developer guidance, see TipKit.",
+        "Guidance: If you need to present a prerequisite onboarding flow, design a brief, enjoyable experience that doesn’t require people to memorize a lot of information. When onboarding is quick and entertaining, people are more likely to complete it. In contrast, if you try to teach too much, people can feel overwhelmed and may be less likely to remember what they learned.",
+        "Guidance: If it makes sense to offer a separate tutorial, consider making it optional. If you let people skip the tutorial when they first launch your app or game, don’t present it again on subsequent launches, but make sure it’s easy for people to find if they want to view it later. For example, you could make the tutorial available in a help, account, or settings area within your app or game.",
+        "Guidance: Keep onboarding content focused on the experience you provide. People enter your onboarding flow to learn about your app or game; they don’t need to learn how to use the system or the device."
       ]
     },
     {
-      "section_heading": "Additional content",
-      "description_text": "",
+      "heading": "Additional content",
+      "description": "",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "Briefly display a splash screen if necessary.",
-          "details": "Briefly display a splash screen if necessary. If you need to include a splash screen, design a beautiful graphic that communicates succinctly. Aim to display your splash screen just long enough for people to absorb the information at a glance without feeling that it’s delaying their experience."
-        },
-        {
-          "type": "Don't",
-          "rule": "Don’t let large downloads hinder onboarding.",
-          "details": "Don’t let large downloads hinder onboarding. People want to start using your app or game immediately after first launching it, whether they participate in an onboarding flow or skip it. Consider including enough media and other content in your software package to prevent people from having to wait for downloads to complete before they can start interacting with your app or game. For guidance, see Launching."
-        },
-        {
-          "type": "Don't",
-          "rule": "Avoid displaying licensing details within your onboarding flow.",
-          "details": "Avoid displaying licensing details within your onboarding flow. Let the App Store display agreements and disclaimers so people can read them before downloading your app or game. If you must include these items within the onboarding flow, integrate them in a balanced way that doesn’t disrupt the experience."
-        }
+        "Guidance: Briefly display a splash screen if necessary. If you need to include a splash screen, design a beautiful graphic that communicates succinctly. Aim to display your splash screen just long enough for people to absorb the information at a glance without feeling that it’s delaying their experience.",
+        "Don't: Don’t let large downloads hinder onboarding. People want to start using your app or game immediately after first launching it, whether they participate in an onboarding flow or skip it. Consider including enough media and other content in your software package to prevent people from having to wait for downloads to complete before they can start interacting with your app or game. For guidance, see Launching.",
+        "Don't: Avoid displaying licensing details within your onboarding flow. Let the App Store display agreements and disclaimers so people can read them before downloading your app or game. If you must include these items within the onboarding flow, integrate them in a balanced way that doesn’t disrupt the experience."
       ]
     },
     {
-      "section_heading": "Additional requests",
-      "description_text": "",
+      "heading": "Additional requests",
+      "description": "",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "Postpone nonessential setup flows or customization steps.",
-          "details": "Postpone nonessential setup flows or customization steps. Provide reasonable default settings so most people can immediately start interacting with your app or game without performing additional configuration."
-        },
-        {
-          "type": "Guidance",
-          "rule": "If your app or game needs access to private data or resources before it can function, consider integrating the permission request into your onboarding flow.",
-          "details": "If your app or game needs access to private data or resources before it can function, consider integrating the permission request into your onboarding flow. In this scenario, making the request during your onboarding flow gives you the opportunity to show people why your app or game needs their permission and the benefits of granting it. Otherwise, present a permission request when people first access the specific function that relies on private data or resources. For guidance, see Requesting permission."
-        },
-        {
-          "type": "Do",
-          "rule": "Prefer letting people experience your app or game before prompting them for ratings or purchases.",
-          "details": "Prefer letting people experience your app or game before prompting them for ratings or purchases. People can be more likely to respond positively to such requests when they’ve had a chance to become engaged with your app or game."
-        }
+        "Guidance: Postpone nonessential setup flows or customization steps. Provide reasonable default settings so most people can immediately start interacting with your app or game without performing additional configuration.",
+        "Guidance: If your app or game needs access to private data or resources before it can function, consider integrating the permission request into your onboarding flow. In this scenario, making the request during your onboarding flow gives you the opportunity to show people why your app or game needs their permission and the benefits of granting it. Otherwise, present a permission request when people first access the specific function that relies on private data or resources. For guidance, see Requesting permission.",
+        "Do: Prefer letting people experience your app or game before prompting them for ratings or purchases. People can be more likely to respond positively to such requests when they’ve had a chance to become engaged with your app or game."
       ]
     },
     {
-      "section_heading": "Platform considerations",
-      "description_text": "",
+      "heading": "Platform considerations",
+      "description": "",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS.",
-          "details": "No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS."
-        }
+        "Guidance: No additional considerations for iOS, iPadOS, macOS, tvOS, visionOS, or watchOS."
       ]
     },
     {
-      "section_heading": "Related",
-      "description_text": "Launching\n\nFeedback\n\nOffering help",
+      "heading": "Related",
+      "description": "Launching\n\nFeedback\n\nOffering help",
       "guidance": []
     },
     {
-      "section_heading": "Change log",
-      "description_text": "Date\n\nChanges\n\nJune 10, 2024\n\nClarified different approaches to onboarding and added a guideline on displaying a splash screen.\n\nJune 21, 2023\n\nUpdated to include guidance for visionOS.",
+      "heading": "Change log",
+      "description": "Date\n\nChanges\n\nJune 10, 2024\n\nClarified different approaches to onboarding and added a guideline on displaying a splash screen.\n\nJune 21, 2023\n\nUpdated to include guidance for visionOS.",
       "guidance": []
     }
   ]

@@ -24,7 +24,12 @@ const HIG_PAGES = [
   'gestures',
   'onboarding',
   'app-icons',
-  'navigation-and-search'
+  'navigation-and-search',
+  'alerts',
+  'modality',
+  'sheets',
+  'popovers',
+  'icons'
 ];
 
 function classifyGuidance(ruleText, fullText) {
@@ -37,6 +42,14 @@ function classifyGuidance(ruleText, fullText) {
   return "Guidance";
 }
 
+function formatGuidanceString(type, fullText) {
+  const lowerText = fullText.toLowerCase();
+  if (lowerText.startsWith('do:') || lowerText.startsWith("don't:") || lowerText.startsWith("don’t:") || lowerText.startsWith('guidance:')) {
+    return fullText;
+  }
+  return `${type}: ${fullText}`;
+}
+
 async function collectPage(browser, slug) {
   const targetUrl = `https://developer.apple.com/design/human-interface-guidelines/${slug}`;
   const outputFile = path.join(OUTPUT_DIR, `${slug}.json`);
@@ -44,7 +57,7 @@ async function collectPage(browser, slug) {
   if (slug === 'navigation-and-search') {
     console.log(`[Browser Collector] Collecting 'navigation-and-search' across 5 subsections...`);
     const page = await browser.newPage();
-    const allSections = [];
+    const normalizedSections = [];
 
     for (const sub of NAVIGATION_SEARCH_SUBSECTIONS) {
       const subUrl = `https://developer.apple.com/design/human-interface-guidelines/${sub.slug}`;
@@ -131,39 +144,41 @@ async function collectPage(browser, slug) {
       }, sub.title);
 
       extractedSecs.forEach(sec => {
-        sec.guidance = (sec.guidance || []).map(g => ({
-          type: classifyGuidance(g.leadText, g.fullText),
-          rule: g.leadText,
-          details: g.fullText
-        }));
-        allSections.push(sec);
+        const heading = sec.section_heading.startsWith(sub.title) 
+          ? sec.section_heading 
+          : `${sub.title} — ${sec.section_heading}`;
+
+        const guidanceStrings = (sec.guidance || []).map(g => {
+          const type = classifyGuidance(g.leadText, g.fullText);
+          return formatGuidanceString(type, g.fullText);
+        });
+
+        normalizedSections.push({
+          heading: heading,
+          description: sec.description_text,
+          guidance: guidanceStrings
+        });
       });
     }
 
     await page.close();
 
-    const structuredOutput = {
+    const normalizedOutput = {
+      page: slug,
       url: targetUrl,
-      title: "Navigation and search",
-      extracted_at: new Date().toISOString(),
-      rendering_mode: "browser-based",
-      subsections_count: NAVIGATION_SEARCH_SUBSECTIONS.length,
-      sections_count: allSections.length,
-      sections: allSections
+      sections: normalizedSections
     };
 
     if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    fs.writeFileSync(outputFile, JSON.stringify(structuredOutput, null, 2), 'utf-8');
-    console.log(`[Browser Collector] Saved ${allSections.length} sections across 5 subsections to ${outputFile}`);
+    fs.writeFileSync(outputFile, JSON.stringify(normalizedOutput, null, 2), 'utf-8');
+    console.log(`[Browser Collector] Saved ${normalizedSections.length} sections across 5 subsections to ${outputFile}`);
   } else {
     console.log(`[Browser Collector] Rendering '${slug}' (${targetUrl})...`);
     const page = await browser.newPage();
     await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 30000 });
     await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1500)));
 
-    const pageTitle = await page.title();
-
-    const sections = await page.evaluate(() => {
+    const extractedSecs = await page.evaluate(() => {
       const main = document.querySelector('main, article, div[role="main"]') || document.body;
       const secList = [];
 
@@ -240,26 +255,28 @@ async function collectPage(browser, slug) {
 
     await page.close();
 
-    sections.forEach(s => {
-      s.guidance = (s.guidance || []).map(g => ({
-        type: classifyGuidance(g.leadText, g.fullText),
-        rule: g.leadText,
-        details: g.fullText
-      }));
+    const normalizedSections = extractedSecs.map(s => {
+      const guidanceStrings = (s.guidance || []).map(g => {
+        const type = classifyGuidance(g.leadText, g.fullText);
+        return formatGuidanceString(type, g.fullText);
+      });
+
+      return {
+        heading: s.section_heading,
+        description: s.description_text,
+        guidance: guidanceStrings
+      };
     });
 
-    const structuredOutput = {
+    const normalizedOutput = {
+      page: slug,
       url: targetUrl,
-      title: pageTitle.replace(/\s*\|.*/, '').trim(),
-      extracted_at: new Date().toISOString(),
-      rendering_mode: "browser-based",
-      sections_count: sections.length,
-      sections: sections
+      sections: normalizedSections
     };
 
     if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    fs.writeFileSync(outputFile, JSON.stringify(structuredOutput, null, 2), 'utf-8');
-    console.log(`[Browser Collector] Saved ${sections.length} sections to ${outputFile}`);
+    fs.writeFileSync(outputFile, JSON.stringify(normalizedOutput, null, 2), 'utf-8');
+    console.log(`[Browser Collector] Saved ${normalizedSections.length} sections to ${outputFile}`);
   }
 }
 
@@ -274,14 +291,14 @@ async function main() {
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
-  const slugsToProcess = targetSlug === 'all' ? HIG_PAGES : [targetSlug];
+  const slugsToProcess = targetSlug === 'all' ? HIG_PAGES : targetSlug.split(',');
 
   for (const slug of slugsToProcess) {
-    await collectPage(browser, slug);
+    await collectPage(browser, slug.trim());
   }
 
   await browser.close();
-  console.log(`[Browser Collector] Finished processing all requested HIG pages.`);
+  console.log(`[Browser Collector] Finished processing requested HIG pages.`);
 }
 
 main().catch(err => {

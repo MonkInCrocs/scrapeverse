@@ -1,326 +1,147 @@
 {
+  "page": "buttons",
   "url": "https://developer.apple.com/design/human-interface-guidelines/buttons",
-  "title": "Buttons",
-  "extracted_at": "2026-08-18T04:17:45.093Z",
-  "rendering_mode": "browser-based",
-  "sections_count": 17,
   "sections": [
     {
-      "section_heading": "Overview",
-      "description_text": "Versatile and highly customizable, buttons give people simple, familiar ways to do tasks in your app. In general, a button combines three attributes to clearly communicate its function:\n\n- Style. A visual style based on size, color, and shape.\n- Content. A symbol (or icon), text label, or both that a button displays to convey its purpose.\n- Role. A system-defined role that identifies a button’s semantic meaning and can affect its appearance.\n\nThere are also many button-like components that have distinct appearances and behaviors for specific use cases, like toggles, pop-up buttons, and segmented controls.",
+      "heading": "Overview",
+      "description": "Versatile and highly customizable, buttons give people simple, familiar ways to do tasks in your app. In general, a button combines three attributes to clearly communicate its function:\n\n- Style. A visual style based on size, color, and shape.\n- Content. A symbol (or icon), text label, or both that a button displays to convey its purpose.\n- Role. A system-defined role that identifies a button’s semantic meaning and can affect its appearance.\n\nThere are also many button-like components that have distinct appearances and behaviors for specific use cases, like toggles, pop-up buttons, and segmented controls.",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "Style.",
-          "details": "Style. A visual style based on size, color, and shape."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Content.",
-          "details": "Content. A symbol (or icon), text label, or both that a button displays to convey its purpose."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Role.",
-          "details": "Role. A system-defined role that identifies a button’s semantic meaning and can affect its appearance."
-        }
+        "Guidance: Style. A visual style based on size, color, and shape.",
+        "Guidance: Content. A symbol (or icon), text label, or both that a button displays to convey its purpose.",
+        "Guidance: Role. A system-defined role that identifies a button’s semantic meaning and can affect its appearance."
       ]
     },
     {
-      "section_heading": "Best practices",
-      "description_text": "When buttons are instantly recognizable and easy to understand, an app tends to feel intuitive and well designed.",
+      "heading": "Best practices",
+      "description": "When buttons are instantly recognizable and easy to understand, an app tends to feel intuitive and well designed.",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Make buttons easy for people to use.",
-          "details": "Make buttons easy for people to use. It’s essential to include enough space around a button so that people can visually distinguish it from surrounding components and content. Giving a button enough space is also critical for helping people select or activate it, regardless of the method of input they use. As a general rule, a button needs a hit region of at least 44x44 pt — in visionOS, 60x60 pt — to ensure that people can select it easily, whether they use a fingertip, a pointer, their eyes, or a remote."
-        },
-        {
-          "type": "Do",
-          "rule": "Always include a press state for a custom button.",
-          "details": "Always include a press state for a custom button. Without a press state, a button can feel unresponsive, making people wonder if it’s accepting their input."
-        }
+        "Do: Make buttons easy for people to use. It’s essential to include enough space around a button so that people can visually distinguish it from surrounding components and content. Giving a button enough space is also critical for helping people select or activate it, regardless of the method of input they use. As a general rule, a button needs a hit region of at least 44x44 pt — in visionOS, 60x60 pt — to ensure that people can select it easily, whether they use a fingertip, a pointer, their eyes, or a remote.",
+        "Do: Always include a press state for a custom button. Without a press state, a button can feel unresponsive, making people wonder if it’s accepting their input."
       ]
     },
     {
-      "section_heading": "Style",
-      "description_text": "System buttons offer a range of styles that support customization while providing built-in interaction states, accessibility support, and appearance adaptation. Different platforms define different styles that help you communicate hierarchies of actions in your app.",
+      "heading": "Style",
+      "description": "System buttons offer a range of styles that support customization while providing built-in interaction states, accessibility support, and appearance adaptation. Different platforms define different styles that help you communicate hierarchies of actions in your app.",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "In general, use a button that has a prominent visual style for the most likely action in a view.",
-          "details": "In general, use a button that has a prominent visual style for the most likely action in a view. To draw people’s attention to a specific button, use a prominent button style so the system can apply an accent color to the button’s background. Buttons that use color tend to be the most visually distinctive, helping people quickly identify the actions they’re most likely to use. Keep the number of prominent buttons to one or two per view. Presenting too many prominent buttons increases cognitive load, requiring people to spend more time considering options before making a choice."
-        },
-        {
-          "type": "Do",
-          "rule": "Use style — not size — to visually distinguish the preferred choice among multiple options.",
-          "details": "Use style — not size — to visually distinguish the preferred choice among multiple options. When you use buttons of the same size to offer two or more options, you signal that the options form a coherent set of choices. By contrast, placing two buttons of different sizes near each other can make the interface look confusing and inconsistent. If you want to highlight the preferred or most likely option in a set, use a more prominent button style for that option and a less prominent style for the remaining ones."
-        },
-        {
-          "type": "Don't",
-          "rule": "Avoid applying a similar color to button labels and content layer backgrounds.",
-          "details": "Avoid applying a similar color to button labels and content layer backgrounds. If your app already has bright, colorful content in the content layer, prefer using the default monochromatic appearance of button labels. For more guidance, see Liquid Glass color."
-        }
+        "Guidance: In general, use a button that has a prominent visual style for the most likely action in a view. To draw people’s attention to a specific button, use a prominent button style so the system can apply an accent color to the button’s background. Buttons that use color tend to be the most visually distinctive, helping people quickly identify the actions they’re most likely to use. Keep the number of prominent buttons to one or two per view. Presenting too many prominent buttons increases cognitive load, requiring people to spend more time considering options before making a choice.",
+        "Do: Use style — not size — to visually distinguish the preferred choice among multiple options. When you use buttons of the same size to offer two or more options, you signal that the options form a coherent set of choices. By contrast, placing two buttons of different sizes near each other can make the interface look confusing and inconsistent. If you want to highlight the preferred or most likely option in a set, use a more prominent button style for that option and a less prominent style for the remaining ones.",
+        "Don't: Avoid applying a similar color to button labels and content layer backgrounds. If your app already has bright, colorful content in the content layer, prefer using the default monochromatic appearance of button labels. For more guidance, see Liquid Glass color."
       ]
     },
     {
-      "section_heading": "Content",
-      "description_text": "[Note: Note\n\nIn macOS and visionOS, the system displays a tooltip after people hover over a button for a moment. A tooltip displays a brief phrase that explains what a button does; for guidance, see Offering help.]\n\nNote\n\nIn macOS and visionOS, the system displays a tooltip after people hover over a button for a moment. A tooltip displays a brief phrase that explains what a button does; for guidance, see Offering help.",
+      "heading": "Content",
+      "description": "[Note: Note\n\nIn macOS and visionOS, the system displays a tooltip after people hover over a button for a moment. A tooltip displays a brief phrase that explains what a button does; for guidance, see Offering help.]\n\nNote\n\nIn macOS and visionOS, the system displays a tooltip after people hover over a button for a moment. A tooltip displays a brief phrase that explains what a button does; for guidance, see Offering help.",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Ensure that each button clearly communicates its purpose.",
-          "details": "Ensure that each button clearly communicates its purpose. Depending on the platform, a button can contain a symbol (or icon), a text label, or both to help people understand what it does."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Try to associate familiar actions with familiar icons.",
-          "details": "Try to associate familiar actions with familiar icons. For example, people can predict that a button containing the square.and.arrow.up symbol will help them perform share-related activities. If it makes sense to use an icon in your button, consider using an existing or customized symbol. For a list of symbols that represent common actions, see Standard icons."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Consider using text when a short label communicates more clearly than an icon.",
-          "details": "Consider using text when a short label communicates more clearly than an icon. To use text, write a few words that succinctly describe what the button does. Using title-style capitalization, consider starting the label with a verb to help convey the button’s action — for example, a button that lets people add items to their shopping cart might use the label “Add to Cart.”"
-        }
+        "Do: Ensure that each button clearly communicates its purpose. Depending on the platform, a button can contain a symbol (or icon), a text label, or both to help people understand what it does.",
+        "Guidance: Try to associate familiar actions with familiar icons. For example, people can predict that a button containing the square.and.arrow.up symbol will help them perform share-related activities. If it makes sense to use an icon in your button, consider using an existing or customized symbol. For a list of symbols that represent common actions, see Standard icons.",
+        "Guidance: Consider using text when a short label communicates more clearly than an icon. To use text, write a few words that succinctly describe what the button does. Using title-style capitalization, consider starting the label with a verb to help convey the button’s action — for example, a button that lets people add items to their shopping cart might use the label “Add to Cart.”"
       ]
     },
     {
-      "section_heading": "Role",
-      "description_text": "A system button can have one of the following roles:\n\n- Normal. No specific meaning.\n- Primary. The button is the default button — the button people are most likely to choose.\n- Cancel. The button cancels the current action.\n- Destructive. The button performs an action that can result in data destruction.\n\nA button’s role can have additional effects on its appearance. For example, a primary button uses an app’s accent color, whereas a destructive button uses the system red color.",
+      "heading": "Role",
+      "description": "A system button can have one of the following roles:\n\n- Normal. No specific meaning.\n- Primary. The button is the default button — the button people are most likely to choose.\n- Cancel. The button cancels the current action.\n- Destructive. The button performs an action that can result in data destruction.\n\nA button’s role can have additional effects on its appearance. For example, a primary button uses an app’s accent color, whereas a destructive button uses the system red color.",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "Normal.",
-          "details": "Normal. No specific meaning."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Primary.",
-          "details": "Primary. The button is the default button — the button people are most likely to choose."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Cancel.",
-          "details": "Cancel. The button cancels the current action."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Destructive.",
-          "details": "Destructive. The button performs an action that can result in data destruction."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Assign the primary role to the button people are most likely to choose.",
-          "details": "Assign the primary role to the button people are most likely to choose. When a primary button responds to the Return key, it makes it easy for people to quickly confirm their choice. In addition, when the button is in a temporary view — like a sheet, an editable view, or an alert — assigning it the primary role means that the view can automatically close when people press Return."
-        },
-        {
-          "type": "Don't",
-          "rule": "Don’t assign the primary role to a button that performs a destructive action, even if that action is the most likely choice.",
-          "details": "Don’t assign the primary role to a button that performs a destructive action, even if that action is the most likely choice. Because of its visual prominence, people sometimes choose a primary button without reading it first. Help people avoid losing content by assigning the primary role to nondestructive buttons."
-        }
+        "Guidance: Normal. No specific meaning.",
+        "Guidance: Primary. The button is the default button — the button people are most likely to choose.",
+        "Guidance: Cancel. The button cancels the current action.",
+        "Guidance: Destructive. The button performs an action that can result in data destruction.",
+        "Guidance: Assign the primary role to the button people are most likely to choose. When a primary button responds to the Return key, it makes it easy for people to quickly confirm their choice. In addition, when the button is in a temporary view — like a sheet, an editable view, or an alert — assigning it the primary role means that the view can automatically close when people press Return.",
+        "Don't: Don’t assign the primary role to a button that performs a destructive action, even if that action is the most likely choice. Because of its visual prominence, people sometimes choose a primary button without reading it first. Help people avoid losing content by assigning the primary role to nondestructive buttons."
       ]
     },
     {
-      "section_heading": "Platform considerations",
-      "description_text": "",
+      "heading": "Platform considerations",
+      "description": "",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "No additional considerations for tvOS.",
-          "details": "No additional considerations for tvOS."
-        }
+        "Guidance: No additional considerations for tvOS."
       ]
     },
     {
-      "section_heading": "iOS, iPadOS",
-      "description_text": "",
+      "heading": "iOS, iPadOS",
+      "description": "",
       "guidance": [
-        {
-          "type": "Guidance",
-          "rule": "Configure a button to display an activity indicator when you need to provide feedback about an action that doesn’t instantly complete.",
-          "details": "Configure a button to display an activity indicator when you need to provide feedback about an action that doesn’t instantly complete. Displaying an activity indicator within a button can save space in your user interface while clearly communicating the reason for the delay. To help clarify what’s happening, you can also configure the button to display a different label alongside the activity indicator. For example, the label “Checkout” could change to “Checking out…” while the activity indicator is visible. When a delay occurs after people click or tap your configured button, the system displays the activity indicator next to the original or alternative label, hiding the button image, if there is one."
-        }
+        "Guidance: Configure a button to display an activity indicator when you need to provide feedback about an action that doesn’t instantly complete. Displaying an activity indicator within a button can save space in your user interface while clearly communicating the reason for the delay. To help clarify what’s happening, you can also configure the button to display a different label alongside the activity indicator. For example, the label “Checkout” could change to “Checking out…” while the activity indicator is visible. When a delay occurs after people click or tap your configured button, the system displays the activity indicator next to the original or alternative label, hiding the button image, if there is one."
       ]
     },
     {
-      "section_heading": "macOS",
-      "description_text": "Several specific button types are unique to macOS.",
+      "heading": "macOS",
+      "description": "Several specific button types are unique to macOS.",
       "guidance": []
     },
     {
-      "section_heading": "Push buttons",
-      "description_text": "The standard button type in macOS is known as a push button. You can configure a push button to display text, a symbol, an icon, or an image, or a combination of text and image content. Push buttons can act as the default button in a view and you can tint them.",
+      "heading": "Push buttons",
+      "description": "The standard button type in macOS is known as a push button. You can configure a push button to display text, a symbol, an icon, or an image, or a combination of text and image content. Push buttons can act as the default button in a view and you can tint them.",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Use a flexible-height push button only when you need to display tall or variable height content.",
-          "details": "Use a flexible-height push button only when you need to display tall or variable height content. Flexible-height buttons support the same configurations as regular push buttons — and they use the same corner radius and content padding — so they look consistent with other buttons in your interface. If you need to present a button that contains two lines of text or a tall icon, use a flexible-height button; otherwise, use a standard push button. For developer guidance, see NSButton.BezelStyle.flexiblePush."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Append a trailing ellipsis to the title when a push button opens another window, view, or app.",
-          "details": "Append a trailing ellipsis to the title when a push button opens another window, view, or app. Throughout the system, an ellipsis in a control title signals that people can provide additional input. For example, the Edit buttons in the AutoFill pane of Safari Settings include ellipses because they open other views that let people modify autofill values."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Consider supporting spring loading.",
-          "details": "Consider supporting spring loading. On systems with a Magic Trackpad, spring loading lets people activate a button by dragging selected items over it and force clicking — that is, pressing harder — without dropping the selected items. After force clicking, people can continue dragging the items, possibly to perform additional actions."
-        }
+        "Do: Use a flexible-height push button only when you need to display tall or variable height content. Flexible-height buttons support the same configurations as regular push buttons — and they use the same corner radius and content padding — so they look consistent with other buttons in your interface. If you need to present a button that contains two lines of text or a tall icon, use a flexible-height button; otherwise, use a standard push button. For developer guidance, see NSButton.BezelStyle.flexiblePush.",
+        "Guidance: Append a trailing ellipsis to the title when a push button opens another window, view, or app. Throughout the system, an ellipsis in a control title signals that people can provide additional input. For example, the Edit buttons in the AutoFill pane of Safari Settings include ellipses because they open other views that let people modify autofill values.",
+        "Guidance: Consider supporting spring loading. On systems with a Magic Trackpad, spring loading lets people activate a button by dragging selected items over it and force clicking — that is, pressing harder — without dropping the selected items. After force clicking, people can continue dragging the items, possibly to perform additional actions."
       ]
     },
     {
-      "section_heading": "Square buttons",
-      "description_text": "A square button (also known as a gradient button) initiates an action related to a view, like adding or removing rows in a table.\n\nSquare buttons contain symbols or icons — not text — and you can configure them to behave like push buttons, toggles, or pop-up buttons. The buttons appear in close proximity to their associated view — usually within or beneath it — so people know which view the buttons affect.\n\nFor developer guidance, see NSButton.BezelStyle.smallSquare.",
+      "heading": "Square buttons",
+      "description": "A square button (also known as a gradient button) initiates an action related to a view, like adding or removing rows in a table.\n\nSquare buttons contain symbols or icons — not text — and you can configure them to behave like push buttons, toggles, or pop-up buttons. The buttons appear in close proximity to their associated view — usually within or beneath it — so people know which view the buttons affect.\n\nFor developer guidance, see NSButton.BezelStyle.smallSquare.",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Use square buttons in a view, not in the window frame.",
-          "details": "Use square buttons in a view, not in the window frame. Square buttons aren’t intended for use in toolbars or status bars. If you need a button in a toolbar, use a toolbar item."
-        },
-        {
-          "type": "Do",
-          "rule": "Prefer using a symbol in a square button.",
-          "details": "Prefer using a symbol in a square button. SF Symbols provides a wide range of symbols that automatically receive appropriate coloring in their default state and in response to user interaction."
-        },
-        {
-          "type": "Don't",
-          "rule": "Avoid using labels to introduce square buttons.",
-          "details": "Avoid using labels to introduce square buttons. Because square buttons are closely connected with a specific view, their purpose is generally clear without the need for descriptive text."
-        }
+        "Do: Use square buttons in a view, not in the window frame. Square buttons aren’t intended for use in toolbars or status bars. If you need a button in a toolbar, use a toolbar item.",
+        "Do: Prefer using a symbol in a square button. SF Symbols provides a wide range of symbols that automatically receive appropriate coloring in their default state and in response to user interaction.",
+        "Don't: Avoid using labels to introduce square buttons. Because square buttons are closely connected with a specific view, their purpose is generally clear without the need for descriptive text."
       ]
     },
     {
-      "section_heading": "Help buttons",
-      "description_text": "A help button appears within a view and opens app-specific help documentation.\n\nHelp buttons are circular, consistently sized buttons that contain a question mark. For guidance on creating help documentation, see Offering help.\n\nView style\n\nHelp button location\n\nDialog with dismissal buttons (like OK and Cancel)\n\nLower corner, opposite to the dismissal buttons and vertically aligned with them\n\nDialog without dismissal buttons\n\nLower-left or lower-right corner\n\nSettings window or pane\n\nLower-left or lower-right corner",
+      "heading": "Help buttons",
+      "description": "A help button appears within a view and opens app-specific help documentation.\n\nHelp buttons are circular, consistently sized buttons that contain a question mark. For guidance on creating help documentation, see Offering help.\n\nView style\n\nHelp button location\n\nDialog with dismissal buttons (like OK and Cancel)\n\nLower corner, opposite to the dismissal buttons and vertically aligned with them\n\nDialog without dismissal buttons\n\nLower-left or lower-right corner\n\nSettings window or pane\n\nLower-left or lower-right corner",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Use the system-provided help button to display your help documentation.",
-          "details": "Use the system-provided help button to display your help documentation. People are familiar with the appearance of the standard help button and know that choosing it opens help content."
-        },
-        {
-          "type": "Guidance",
-          "rule": "When possible, open the help topic that’s related to the current context.",
-          "details": "When possible, open the help topic that’s related to the current context. For example, the help button in the Rules pane of Mail settings opens the Mail User Guide to a help topic that explains how to change these settings. If no specific help topic applies directly to the current context, open the top level of your app’s help documentation when people choose a help button."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Include no more than one help button per window.",
-          "details": "Include no more than one help button per window. Multiple help buttons in the same context make it hard for people to predict the result of clicking one."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Position help buttons where people expect to find them.",
-          "details": "Position help buttons where people expect to find them. Use the following locations for guidance."
-        },
-        {
-          "type": "Do",
-          "rule": "Use a help button within a view, not in the window frame.",
-          "details": "Use a help button within a view, not in the window frame. For example, avoid placing a help button in a toolbar or status bar."
-        },
-        {
-          "type": "Don't",
-          "rule": "Avoid displaying text that introduces a help button.",
-          "details": "Avoid displaying text that introduces a help button. People know what a help button does, so they don’t need additional descriptive text."
-        }
+        "Do: Use the system-provided help button to display your help documentation. People are familiar with the appearance of the standard help button and know that choosing it opens help content.",
+        "Guidance: When possible, open the help topic that’s related to the current context. For example, the help button in the Rules pane of Mail settings opens the Mail User Guide to a help topic that explains how to change these settings. If no specific help topic applies directly to the current context, open the top level of your app’s help documentation when people choose a help button.",
+        "Guidance: Include no more than one help button per window. Multiple help buttons in the same context make it hard for people to predict the result of clicking one.",
+        "Guidance: Position help buttons where people expect to find them. Use the following locations for guidance.",
+        "Do: Use a help button within a view, not in the window frame. For example, avoid placing a help button in a toolbar or status bar.",
+        "Don't: Avoid displaying text that introduces a help button. People know what a help button does, so they don’t need additional descriptive text."
       ]
     },
     {
-      "section_heading": "Image buttons",
-      "description_text": "An image button appears in a view and displays an image, symbol, or icon. You can configure an image button to behave like a push button, toggle, or pop-up button.",
+      "heading": "Image buttons",
+      "description": "An image button appears in a view and displays an image, symbol, or icon. You can configure an image button to behave like a push button, toggle, or pop-up button.",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Use an image button in a view, not in the window frame.",
-          "details": "Use an image button in a view, not in the window frame. For example, avoid placing an image button in a toolbar or status bar. If you need to use an image as a button in a toolbar, use a toolbar item. See Toolbars."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Include about 10 pixels of padding between the edges of the image and the button edges.",
-          "details": "Include about 10 pixels of padding between the edges of the image and the button edges. An image button’s edges define its clickable area even when they aren’t visible. Including padding ensures that a click registers correctly even if it’s not precisely within the image. In general, avoid including a system-provided border in an image button; for developer guidance, see isBordered."
-        },
-        {
-          "type": "Guidance",
-          "rule": "If you need to include a label, position it below the image button.",
-          "details": "If you need to include a label, position it below the image button. For related guidance, see Labels."
-        }
+        "Do: Use an image button in a view, not in the window frame. For example, avoid placing an image button in a toolbar or status bar. If you need to use an image as a button in a toolbar, use a toolbar item. See Toolbars.",
+        "Guidance: Include about 10 pixels of padding between the edges of the image and the button edges. An image button’s edges define its clickable area even when they aren’t visible. Including padding ensures that a click registers correctly even if it’s not precisely within the image. In general, avoid including a system-provided border in an image button; for developer guidance, see isBordered.",
+        "Guidance: If you need to include a label, position it below the image button. For related guidance, see Labels."
       ]
     },
     {
-      "section_heading": "visionOS",
-      "description_text": "A visionOS button typically includes a visible background that can help people see it, and the button plays sound to provide feedback when people interact with it.\n\nThere are three standard button shapes in visionOS. Typically, an icon-only button uses a circle shape, a text-only button uses a roundedRectangle or capsule shape, and a button that includes both an icon and text uses the capsule shape.\n\nvisionOS buttons use different visual styles to communicate four different interaction states.\n\nIdle\n\nHover\n\nSelected\n\nUnavailable\n\n[Note: Note\n\nIn visionOS, buttons don’t support custom hover effects.]\n\nNote\n\nIn visionOS, buttons don’t support custom hover effects.\n\nIn addition to the four states shown above, a button can also reveal a tooltip when people look at it for a brief time. In general, buttons that contain text don’t need to display a tooltip because the button’s descriptive label communicates what it does.\n\nIn visionOS, buttons can have the following sizes.\n\nShape\n\nMini (28 pt)\n\nSmall (32 pt)\n\nRegular (44 pt)\n\nLarge (52 pt)\n\nExtra large (64 pt)\n\nCircular\n\nCapsule (text only)\n\nCapsule (text and icon)\n\nRounded rectangle\n\n- When a button appears on top of a glass window, use the thin material as the button’s background.\n- When a button appears floating in space, use the glass material for its background.\n\nWhen a button appears on top of a glass window, use the thin material as the button’s background.\n\nWhen a button appears floating in space, use the glass material for its background.",
+      "heading": "visionOS",
+      "description": "A visionOS button typically includes a visible background that can help people see it, and the button plays sound to provide feedback when people interact with it.\n\nThere are three standard button shapes in visionOS. Typically, an icon-only button uses a circle shape, a text-only button uses a roundedRectangle or capsule shape, and a button that includes both an icon and text uses the capsule shape.\n\nvisionOS buttons use different visual styles to communicate four different interaction states.\n\nIdle\n\nHover\n\nSelected\n\nUnavailable\n\n[Note: Note\n\nIn visionOS, buttons don’t support custom hover effects.]\n\nNote\n\nIn visionOS, buttons don’t support custom hover effects.\n\nIn addition to the four states shown above, a button can also reveal a tooltip when people look at it for a brief time. In general, buttons that contain text don’t need to display a tooltip because the button’s descriptive label communicates what it does.\n\nIn visionOS, buttons can have the following sizes.\n\nShape\n\nMini (28 pt)\n\nSmall (32 pt)\n\nRegular (44 pt)\n\nLarge (52 pt)\n\nExtra large (64 pt)\n\nCircular\n\nCapsule (text only)\n\nCapsule (text and icon)\n\nRounded rectangle\n\n- When a button appears on top of a glass window, use the thin material as the button’s background.\n- When a button appears floating in space, use the glass material for its background.\n\nWhen a button appears on top of a glass window, use the thin material as the button’s background.\n\nWhen a button appears floating in space, use the glass material for its background.",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Prefer buttons that have a discernible background shape and fill.",
-          "details": "Prefer buttons that have a discernible background shape and fill. It tends to be easier for people to see a button when it’s enclosed in a shape that uses a contrasting background fill. The exception is a button in a toolbar, context menu, alert, or ornament where the shape and material of the larger component make the button comfortably visible. The following guidelines can help you ensure that a button looks good in different contexts:"
-        },
-        {
-          "type": "Don't",
-          "rule": "Avoid creating a custom button that uses a white background fill and black text or icons.",
-          "details": "Avoid creating a custom button that uses a white background fill and black text or icons. The system reserves this visual style to convey the toggled state."
-        },
-        {
-          "type": "Guidance",
-          "rule": "In general, prefer circular or capsule-shape buttons.",
-          "details": "In general, prefer circular or capsule-shape buttons. People’s eyes tend to be drawn toward the corners in a shape, making it difficult to keep looking at the shape’s center. The more rounded a button’s shape, the easier it is for people to look steadily at it. When you need to display a button by itself, prefer a capsule-shape button."
-        },
-        {
-          "type": "Do",
-          "rule": "Provide enough space around a button to make it easy for people to look at it.",
-          "details": "Provide enough space around a button to make it easy for people to look at it. Aim to place buttons so their centers are always at least 60 pts apart. If your buttons measure 60 pts or larger, add 4 pts of padding around them to keep the hover effect from overlapping. Also, it’s usually best to avoid displaying small or mini buttons in a vertical stack or horizontal row."
-        },
-        {
-          "type": "Guidance",
-          "rule": "Choose the right shape if you need to display text-labeled buttons in a stack or row.",
-          "details": "Choose the right shape if you need to display text-labeled buttons in a stack or row. Specifically, prefer the rounded-rectangle shape in a vertical stack of buttons and prefer the capsule shape in a horizontal row of buttons."
-        },
-        {
-          "type": "Do",
-          "rule": "Use standard controls to take advantage of the audible feedback sounds people already know.",
-          "details": "Use standard controls to take advantage of the audible feedback sounds people already know. Audible feedback is especially important in visionOS, because the system doesn’t play haptics."
-        }
+        "Do: Prefer buttons that have a discernible background shape and fill. It tends to be easier for people to see a button when it’s enclosed in a shape that uses a contrasting background fill. The exception is a button in a toolbar, context menu, alert, or ornament where the shape and material of the larger component make the button comfortably visible. The following guidelines can help you ensure that a button looks good in different contexts:",
+        "Don't: Avoid creating a custom button that uses a white background fill and black text or icons. The system reserves this visual style to convey the toggled state.",
+        "Guidance: In general, prefer circular or capsule-shape buttons. People’s eyes tend to be drawn toward the corners in a shape, making it difficult to keep looking at the shape’s center. The more rounded a button’s shape, the easier it is for people to look steadily at it. When you need to display a button by itself, prefer a capsule-shape button.",
+        "Do: Provide enough space around a button to make it easy for people to look at it. Aim to place buttons so their centers are always at least 60 pts apart. If your buttons measure 60 pts or larger, add 4 pts of padding around them to keep the hover effect from overlapping. Also, it’s usually best to avoid displaying small or mini buttons in a vertical stack or horizontal row.",
+        "Guidance: Choose the right shape if you need to display text-labeled buttons in a stack or row. Specifically, prefer the rounded-rectangle shape in a vertical stack of buttons and prefer the capsule shape in a horizontal row of buttons.",
+        "Do: Use standard controls to take advantage of the audible feedback sounds people already know. Audible feedback is especially important in visionOS, because the system doesn’t play haptics."
       ]
     },
     {
-      "section_heading": "watchOS",
-      "description_text": "watchOS displays all inline buttons using the capsule button shape. When you place a button inline with content, it gains a material effect that contrasts with the background to ensure legibility.",
+      "heading": "watchOS",
+      "description": "watchOS displays all inline buttons using the capsule button shape. When you place a button inline with content, it gains a material effect that contrasts with the background to ensure legibility.",
       "guidance": [
-        {
-          "type": "Do",
-          "rule": "Use a toolbar to place buttons in the corners.",
-          "details": "Use a toolbar to place buttons in the corners. The system automatically moves the time and title to accommodate toolbar buttons. The system also applies the Liquid Glass appearance to toolbar buttons, providing a clear visual distinction from the content beneath them."
-        },
-        {
-          "type": "Do",
-          "rule": "Prefer buttons that span the width of the screen for primary actions in your app.",
-          "details": "Prefer buttons that span the width of the screen for primary actions in your app. Full-width buttons look better and are easier for people to tap. If two buttons must share the same horizontal space, use the same height for both, and use images or short text titles for each button’s content."
-        },
-        {
-          "type": "Do",
-          "rule": "Use toolbar buttons to provide either navigation to related areas or contextual actions for the view’s content.",
-          "details": "Use toolbar buttons to provide either navigation to related areas or contextual actions for the view’s content. These buttons provide access to additional information or secondary actions for the view’s content."
-        },
-        {
-          "type": "Do",
-          "rule": "Use the same height for vertical stacks of one- and two-line text buttons.",
-          "details": "Use the same height for vertical stacks of one- and two-line text buttons. As much as possible, use identical button heights for visual consistency."
-        }
+        "Do: Use a toolbar to place buttons in the corners. The system automatically moves the time and title to accommodate toolbar buttons. The system also applies the Liquid Glass appearance to toolbar buttons, providing a clear visual distinction from the content beneath them.",
+        "Do: Prefer buttons that span the width of the screen for primary actions in your app. Full-width buttons look better and are easier for people to tap. If two buttons must share the same horizontal space, use the same height for both, and use images or short text titles for each button’s content.",
+        "Do: Use toolbar buttons to provide either navigation to related areas or contextual actions for the view’s content. These buttons provide access to additional information or secondary actions for the view’s content.",
+        "Do: Use the same height for vertical stacks of one- and two-line text buttons. As much as possible, use identical button heights for visual consistency."
       ]
     },
     {
-      "section_heading": "Related",
-      "description_text": "Pop-up buttons\n\nPull-down buttons\n\nToggles\n\nSegmented controls\n\nLocation button",
+      "heading": "Related",
+      "description": "Pop-up buttons\n\nPull-down buttons\n\nToggles\n\nSegmented controls\n\nLocation button",
       "guidance": []
     },
     {
-      "section_heading": "Developer documentation",
-      "description_text": "Button — SwiftUI\n\nUIButton — UIKit\n\nNSButton — AppKit",
+      "heading": "Developer documentation",
+      "description": "Button — SwiftUI\n\nUIButton — UIKit\n\nNSButton — AppKit",
       "guidance": []
     },
     {
-      "section_heading": "Change log",
-      "description_text": "Date\n\nChanges\n\nDecember 16, 2025\n\nUpdated guidance for Liquid Glass.\n\nJune 9, 2025\n\nUpdated guidance for button styles and content.\n\nFebruary 2, 2024\n\nNoted that visionOS buttons don’t support custom hover effects.\n\nDecember 5, 2023\n\nClarified some terminology and guidance for buttons in visionOS.\n\nJune 21, 2023\n\nUpdated to include guidance for visionOS.\n\nJune 5, 2023\n\nUpdated guidance for using buttons in watchOS.",
+      "heading": "Change log",
+      "description": "Date\n\nChanges\n\nDecember 16, 2025\n\nUpdated guidance for Liquid Glass.\n\nJune 9, 2025\n\nUpdated guidance for button styles and content.\n\nFebruary 2, 2024\n\nNoted that visionOS buttons don’t support custom hover effects.\n\nDecember 5, 2023\n\nClarified some terminology and guidance for buttons in visionOS.\n\nJune 21, 2023\n\nUpdated to include guidance for visionOS.\n\nJune 5, 2023\n\nUpdated guidance for using buttons in watchOS.",
       "guidance": []
     }
   ]
