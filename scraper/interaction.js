@@ -1,14 +1,18 @@
 /**
  * Bright Data Scraper Studio - Interaction Code
- * Target URL: https://developer.apple.com/design/human-interface-guidelines/buttons
+ * Browser-based rendering interaction code for Apple Human Interface Guidelines (HIG).
  */
 
-// Navigate to target URL provided in input, or fallback to default Apple HIG Buttons URL
-const targetUrl = input && input.url ? input.url : 'https://developer.apple.com/design/human-interface-guidelines/buttons';
+const targetUrl = input && input.url ? input.url : 'https://developer.apple.com/design/human-interface-guidelines/navigation-and-search';
+
+// Navigate to target URL
 navigate(targetUrl);
 
-// Wait for the page content or main container to render
-wait('main, body', { timeout: 15000 });
+// Wait for JS hydration and main content container rendering
+wait('main, article, div[role="main"], body', { timeout: 20000 });
+
+// Additional wait to ensure full JS rendering of components and guidance rules
+sleep(2000);
 
 // Run the parser code to extract structured data (headings, description text, Do/Don't guidance)
 let extractedData = parse();

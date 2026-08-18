@@ -1,13 +1,30 @@
 {
   "url": "https://developer.apple.com/design/human-interface-guidelines/buttons",
   "title": "Buttons",
-  "extracted_at": "2026-08-17T06:36:28.467Z",
-  "sections_count": 15,
+  "extracted_at": "2026-08-18T04:17:45.093Z",
+  "rendering_mode": "browser-based",
+  "sections_count": 17,
   "sections": [
     {
       "section_heading": "Overview",
-      "description_text": "A button initiates an instantaneous action.\n\nVersatile and highly customizable, buttons give people simple, familiar ways to do tasks in your app. In general, a button combines three attributes to clearly communicate its function:\n- Style. A visual style based on size, color, and shape.\n- Content. A symbol (or icon), text label, or both that a button displays to convey its purpose.\n- Role. A system-defined role that identifies a button’s semantic meaning and can affect its appearance.\n\nThere are also many button-like components that have distinct appearances and behaviors for specific use cases, like , , and .",
-      "guidance": []
+      "description_text": "Versatile and highly customizable, buttons give people simple, familiar ways to do tasks in your app. In general, a button combines three attributes to clearly communicate its function:\n\n- Style. A visual style based on size, color, and shape.\n- Content. A symbol (or icon), text label, or both that a button displays to convey its purpose.\n- Role. A system-defined role that identifies a button’s semantic meaning and can affect its appearance.\n\nThere are also many button-like components that have distinct appearances and behaviors for specific use cases, like toggles, pop-up buttons, and segmented controls.",
+      "guidance": [
+        {
+          "type": "Guidance",
+          "rule": "Style.",
+          "details": "Style. A visual style based on size, color, and shape."
+        },
+        {
+          "type": "Guidance",
+          "rule": "Content.",
+          "details": "Content. A symbol (or icon), text label, or both that a button displays to convey its purpose."
+        },
+        {
+          "type": "Guidance",
+          "rule": "Role.",
+          "details": "Role. A system-defined role that identifies a button’s semantic meaning and can affect its appearance."
+        }
+      ]
     },
     {
       "section_heading": "Best practices",
@@ -42,13 +59,13 @@
         {
           "type": "Don't",
           "rule": "Avoid applying a similar color to button labels and content layer backgrounds.",
-          "details": "Avoid applying a similar color to button labels and content layer backgrounds. If your app already has bright, colorful content in the content layer, prefer using the default monochromatic appearance of button labels. For more guidance, see ."
+          "details": "Avoid applying a similar color to button labels and content layer backgrounds. If your app already has bright, colorful content in the content layer, prefer using the default monochromatic appearance of button labels. For more guidance, see Liquid Glass color."
         }
       ]
     },
     {
       "section_heading": "Content",
-      "description_text": "[Note: In macOS and visionOS, the system displays a tooltip after people hover over a button for a moment. A tooltip displays a brief phrase that explains what a button does; for guidance, see .]",
+      "description_text": "[Note: Note\n\nIn macOS and visionOS, the system displays a tooltip after people hover over a button for a moment. A tooltip displays a brief phrase that explains what a button does; for guidance, see Offering help.]\n\nNote\n\nIn macOS and visionOS, the system displays a tooltip after people hover over a button for a moment. A tooltip displays a brief phrase that explains what a button does; for guidance, see Offering help.",
       "guidance": [
         {
           "type": "Do",
@@ -58,23 +75,43 @@
         {
           "type": "Guidance",
           "rule": "Try to associate familiar actions with familiar icons.",
-          "details": "Try to associate familiar actions with familiar icons. For example, people can predict that a button containing the  symbol will help them perform share-related activities. If it makes sense to use an icon in your button, consider using an existing or customized . For a list of symbols that represent common actions, see ."
+          "details": "Try to associate familiar actions with familiar icons. For example, people can predict that a button containing the square.and.arrow.up symbol will help them perform share-related activities. If it makes sense to use an icon in your button, consider using an existing or customized symbol. For a list of symbols that represent common actions, see Standard icons."
         },
         {
           "type": "Guidance",
           "rule": "Consider using text when a short label communicates more clearly than an icon.",
-          "details": "Consider using text when a short label communicates more clearly than an icon. To use text, write a few words that succinctly describe what the button does. Using , consider starting the label with a verb to help convey the button’s action — for example, a button that lets people add items to their shopping cart might use the label “Add to Cart.”"
+          "details": "Consider using text when a short label communicates more clearly than an icon. To use text, write a few words that succinctly describe what the button does. Using title-style capitalization, consider starting the label with a verb to help convey the button’s action — for example, a button that lets people add items to their shopping cart might use the label “Add to Cart.”"
         }
       ]
     },
     {
       "section_heading": "Role",
-      "description_text": "A system button can have one of the following roles:\n- Normal. No specific meaning.\n- Primary. The button is the default button — the button people are most likely to choose.\n- Cancel. The button cancels the current action.\n- Destructive. The button performs an action that can result in data destruction.\n\nA button’s role can have additional effects on its appearance. For example, a primary button uses an app’s accent color, whereas a destructive button uses the system red color.",
+      "description_text": "A system button can have one of the following roles:\n\n- Normal. No specific meaning.\n- Primary. The button is the default button — the button people are most likely to choose.\n- Cancel. The button cancels the current action.\n- Destructive. The button performs an action that can result in data destruction.\n\nA button’s role can have additional effects on its appearance. For example, a primary button uses an app’s accent color, whereas a destructive button uses the system red color.",
       "guidance": [
         {
           "type": "Guidance",
+          "rule": "Normal.",
+          "details": "Normal. No specific meaning."
+        },
+        {
+          "type": "Guidance",
+          "rule": "Primary.",
+          "details": "Primary. The button is the default button — the button people are most likely to choose."
+        },
+        {
+          "type": "Guidance",
+          "rule": "Cancel.",
+          "details": "Cancel. The button cancels the current action."
+        },
+        {
+          "type": "Guidance",
+          "rule": "Destructive.",
+          "details": "Destructive. The button performs an action that can result in data destruction."
+        },
+        {
+          "type": "Guidance",
           "rule": "Assign the primary role to the button people are most likely to choose.",
-          "details": "Assign the primary role to the button people are most likely to choose. When a primary button responds to the Return key, it makes it easy for people to quickly confirm their choice. In addition, when the button is in a temporary view — like a , an editable view, or an  — assigning it the primary role means that the view can automatically close when people press Return."
+          "details": "Assign the primary role to the button people are most likely to choose. When a primary button responds to the Return key, it makes it easy for people to quickly confirm their choice. In addition, when the button is in a temporary view — like a sheet, an editable view, or an alert — assigning it the primary role means that the view can automatically close when people press Return."
         },
         {
           "type": "Don't",
@@ -117,7 +154,7 @@
         {
           "type": "Do",
           "rule": "Use a flexible-height push button only when you need to display tall or variable height content.",
-          "details": "Use a flexible-height push button only when you need to display tall or variable height content. Flexible-height buttons support the same configurations as regular push buttons — and they use the same corner radius and content padding — so they look consistent with other buttons in your interface. If you need to present a button that contains two lines of text or a tall icon, use a flexible-height button; otherwise, use a standard push button. For developer guidance, see ."
+          "details": "Use a flexible-height push button only when you need to display tall or variable height content. Flexible-height buttons support the same configurations as regular push buttons — and they use the same corner radius and content padding — so they look consistent with other buttons in your interface. If you need to present a button that contains two lines of text or a tall icon, use a flexible-height button; otherwise, use a standard push button. For developer guidance, see NSButton.BezelStyle.flexiblePush."
         },
         {
           "type": "Guidance",
@@ -133,17 +170,17 @@
     },
     {
       "section_heading": "Square buttons",
-      "description_text": "A square button (also known as a gradient button) initiates an action related to a view, like adding or removing rows in a table.\n\nSquare buttons contain symbols or icons — not text — and you can configure them to behave like push buttons, toggles, or pop-up buttons. The buttons appear in close proximity to their associated view — usually within or beneath it — so people know which view the buttons affect.\n\nFor developer guidance, see .",
+      "description_text": "A square button (also known as a gradient button) initiates an action related to a view, like adding or removing rows in a table.\n\nSquare buttons contain symbols or icons — not text — and you can configure them to behave like push buttons, toggles, or pop-up buttons. The buttons appear in close proximity to their associated view — usually within or beneath it — so people know which view the buttons affect.\n\nFor developer guidance, see NSButton.BezelStyle.smallSquare.",
       "guidance": [
         {
           "type": "Do",
           "rule": "Use square buttons in a view, not in the window frame.",
-          "details": "Use square buttons in a view, not in the window frame. Square buttons aren’t intended for use in toolbars or status bars. If you need a button in a , use a toolbar item."
+          "details": "Use square buttons in a view, not in the window frame. Square buttons aren’t intended for use in toolbars or status bars. If you need a button in a toolbar, use a toolbar item."
         },
         {
           "type": "Do",
           "rule": "Prefer using a symbol in a square button.",
-          "details": "Prefer using a symbol in a square button.  provides a wide range of symbols that automatically receive appropriate coloring in their default state and in response to user interaction."
+          "details": "Prefer using a symbol in a square button. SF Symbols provides a wide range of symbols that automatically receive appropriate coloring in their default state and in response to user interaction."
         },
         {
           "type": "Don't",
@@ -154,7 +191,7 @@
     },
     {
       "section_heading": "Help buttons",
-      "description_text": "A help button appears within a view and opens app-specific help documentation.\n\nHelp buttons are circular, consistently sized buttons that contain a question mark. For guidance on creating help documentation, see .",
+      "description_text": "A help button appears within a view and opens app-specific help documentation.\n\nHelp buttons are circular, consistently sized buttons that contain a question mark. For guidance on creating help documentation, see Offering help.\n\nView style\n\nHelp button location\n\nDialog with dismissal buttons (like OK and Cancel)\n\nLower corner, opposite to the dismissal buttons and vertically aligned with them\n\nDialog without dismissal buttons\n\nLower-left or lower-right corner\n\nSettings window or pane\n\nLower-left or lower-right corner",
       "guidance": [
         {
           "type": "Do",
@@ -195,28 +232,28 @@
         {
           "type": "Do",
           "rule": "Use an image button in a view, not in the window frame.",
-          "details": "Use an image button in a view, not in the window frame. For example, avoid placing an image button in a toolbar or status bar. If you need to use an image as a button in a toolbar, use a toolbar item. See ."
+          "details": "Use an image button in a view, not in the window frame. For example, avoid placing an image button in a toolbar or status bar. If you need to use an image as a button in a toolbar, use a toolbar item. See Toolbars."
         },
         {
           "type": "Guidance",
           "rule": "Include about 10 pixels of padding between the edges of the image and the button edges.",
-          "details": "Include about 10 pixels of padding between the edges of the image and the button edges. An image button’s edges define its clickable area even when they aren’t visible. Including padding ensures that a click registers correctly even if it’s not precisely within the image. In general, avoid including a system-provided border in an image button; for developer guidance, see ."
+          "details": "Include about 10 pixels of padding between the edges of the image and the button edges. An image button’s edges define its clickable area even when they aren’t visible. Including padding ensures that a click registers correctly even if it’s not precisely within the image. In general, avoid including a system-provided border in an image button; for developer guidance, see isBordered."
         },
         {
           "type": "Guidance",
           "rule": "If you need to include a label, position it below the image button.",
-          "details": "If you need to include a label, position it below the image button. For related guidance, see ."
+          "details": "If you need to include a label, position it below the image button. For related guidance, see Labels."
         }
       ]
     },
     {
       "section_heading": "visionOS",
-      "description_text": "A visionOS button typically includes a visible background that can help people see it, and the button plays sound to provide feedback when people interact with it.\n\nThere are three standard button shapes in visionOS. Typically, an icon-only button uses a  shape, a text-only button uses a  or  shape, and a button that includes both an icon and text uses the capsule shape.\n\nvisionOS buttons use different visual styles to communicate four different interaction states.\n\n[Note: In visionOS, buttons don’t support custom hover effects.]\n\nIn addition to the four states shown above, a button can also reveal a tooltip when people look at it for a brief time. In general, buttons that contain text don’t need to display a tooltip because the button’s descriptive label communicates what it does.\n\nIn visionOS, buttons can have the following sizes.\n- When a button appears on top of a glass , use the  material as the button’s background.\n- When a button appears floating in space, use the  for its background.",
+      "description_text": "A visionOS button typically includes a visible background that can help people see it, and the button plays sound to provide feedback when people interact with it.\n\nThere are three standard button shapes in visionOS. Typically, an icon-only button uses a circle shape, a text-only button uses a roundedRectangle or capsule shape, and a button that includes both an icon and text uses the capsule shape.\n\nvisionOS buttons use different visual styles to communicate four different interaction states.\n\nIdle\n\nHover\n\nSelected\n\nUnavailable\n\n[Note: Note\n\nIn visionOS, buttons don’t support custom hover effects.]\n\nNote\n\nIn visionOS, buttons don’t support custom hover effects.\n\nIn addition to the four states shown above, a button can also reveal a tooltip when people look at it for a brief time. In general, buttons that contain text don’t need to display a tooltip because the button’s descriptive label communicates what it does.\n\nIn visionOS, buttons can have the following sizes.\n\nShape\n\nMini (28 pt)\n\nSmall (32 pt)\n\nRegular (44 pt)\n\nLarge (52 pt)\n\nExtra large (64 pt)\n\nCircular\n\nCapsule (text only)\n\nCapsule (text and icon)\n\nRounded rectangle\n\n- When a button appears on top of a glass window, use the thin material as the button’s background.\n- When a button appears floating in space, use the glass material for its background.\n\nWhen a button appears on top of a glass window, use the thin material as the button’s background.\n\nWhen a button appears floating in space, use the glass material for its background.",
       "guidance": [
         {
           "type": "Do",
           "rule": "Prefer buttons that have a discernible background shape and fill.",
-          "details": "Prefer buttons that have a discernible background shape and fill. It tends to be easier for people to see a button when it’s enclosed in a shape that uses a contrasting background fill. The exception is a button in a toolbar, context menu, alert, or  where the shape and material of the larger component make the button comfortably visible. The following guidelines can help you ensure that a button looks good in different contexts:"
+          "details": "Prefer buttons that have a discernible background shape and fill. It tends to be easier for people to see a button when it’s enclosed in a shape that uses a contrasting background fill. The exception is a button in a toolbar, context menu, alert, or ornament where the shape and material of the larger component make the button comfortably visible. The following guidelines can help you ensure that a button looks good in different contexts:"
         },
         {
           "type": "Don't",
@@ -247,12 +284,12 @@
     },
     {
       "section_heading": "watchOS",
-      "description_text": "watchOS displays all inline buttons using the  button shape. When you place a button inline with content, it gains a material effect that contrasts with the background to ensure legibility.",
+      "description_text": "watchOS displays all inline buttons using the capsule button shape. When you place a button inline with content, it gains a material effect that contrasts with the background to ensure legibility.",
       "guidance": [
         {
           "type": "Do",
           "rule": "Use a toolbar to place buttons in the corners.",
-          "details": "Use a toolbar to place buttons in the corners. The system automatically moves the time and title to accommodate toolbar buttons. The system also applies the  appearance to toolbar buttons, providing a clear visual distinction from the content beneath them."
+          "details": "Use a toolbar to place buttons in the corners. The system automatically moves the time and title to accommodate toolbar buttons. The system also applies the Liquid Glass appearance to toolbar buttons, providing a clear visual distinction from the content beneath them."
         },
         {
           "type": "Do",
@@ -272,8 +309,18 @@
       ]
     },
     {
+      "section_heading": "Related",
+      "description_text": "Pop-up buttons\n\nPull-down buttons\n\nToggles\n\nSegmented controls\n\nLocation button",
+      "guidance": []
+    },
+    {
       "section_heading": "Developer documentation",
-      "description_text": "— SwiftUI\n\n— UIKit\n\n— AppKit",
+      "description_text": "Button — SwiftUI\n\nUIButton — UIKit\n\nNSButton — AppKit",
+      "guidance": []
+    },
+    {
+      "section_heading": "Change log",
+      "description_text": "Date\n\nChanges\n\nDecember 16, 2025\n\nUpdated guidance for Liquid Glass.\n\nJune 9, 2025\n\nUpdated guidance for button styles and content.\n\nFebruary 2, 2024\n\nNoted that visionOS buttons don’t support custom hover effects.\n\nDecember 5, 2023\n\nClarified some terminology and guidance for buttons in visionOS.\n\nJune 21, 2023\n\nUpdated to include guidance for visionOS.\n\nJune 5, 2023\n\nUpdated guidance for using buttons in watchOS.",
       "guidance": []
     }
   ]

@@ -1,40 +1,31 @@
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
 
-const slug = process.argv[2] || 'buttons';
+let puppeteer;
+try {
+  puppeteer = require('puppeteer');
+} catch (e) {
+  puppeteer = null;
+}
 
-const TARGET_URL = `https://developer.apple.com/design/human-interface-guidelines/${slug}`;
-const DATA_API_URL = `https://developer.apple.com/tutorials/data/design/human-interface-guidelines/${slug}.json`;
+const targetSlug = process.argv[2] || 'all';
 const OUTPUT_DIR = path.join(__dirname, 'output');
-const OUTPUT_FILE = path.join(OUTPUT_DIR, `${slug}.json`);
 
-function fetchJson(url) {
-  return new Promise((resolve, reject) => {
-    const req = https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)' } }, (res) => {
-      let body = '';
-      res.on('data', (chunk) => body += chunk);
-      res.on('end', () => {
-        try {
-          resolve(JSON.parse(body));
-        } catch (e) {
-          reject(e);
-        }
-      });
-    });
-    req.on('error', reject);
-  });
-}
+const NAVIGATION_SEARCH_SUBSECTIONS = [
+  { slug: 'path-controls', title: 'Path controls' },
+  { slug: 'search-fields', title: 'Search fields' },
+  { slug: 'sidebars', title: 'Sidebars' },
+  { slug: 'tab-bars', title: 'Tab bars' },
+  { slug: 'token-fields', title: 'Token fields' }
+];
 
-function extractInlineText(inlineList) {
-  if (!Array.isArray(inlineList)) return '';
-  return inlineList.map(item => {
-    if (!item) return '';
-    if (item.text) return item.text;
-    if (item.inlineContent) return extractInlineText(item.inlineContent);
-    return '';
-  }).join('');
-}
+const HIG_PAGES = [
+  'buttons',
+  'gestures',
+  'onboarding',
+  'app-icons',
+  'navigation-and-search'
+];
 
 function classifyGuidance(ruleText, fullText) {
   const lowerRule = ruleText.toLowerCase();
@@ -46,172 +37,254 @@ function classifyGuidance(ruleText, fullText) {
   return "Guidance";
 }
 
-async function runCollector() {
-  console.log(`[Bright Data Collector] Fetching Apple HIG data for '${slug}' from ${DATA_API_URL}...`);
-  const rawData = await fetchJson(DATA_API_URL);
+async function collectPage(browser, slug) {
+  const targetUrl = `https://developer.apple.com/design/human-interface-guidelines/${slug}`;
+  const outputFile = path.join(OUTPUT_DIR, `${slug}.json`);
 
-  const sections = [];
-  let currentSection = {
-    section_heading: 'Overview',
-    description_text: '',
-    guidance: []
-  };
+  if (slug === 'navigation-and-search') {
+    console.log(`[Browser Collector] Collecting 'navigation-and-search' across 5 subsections...`);
+    const page = await browser.newPage();
+    const allSections = [];
 
-  const abstractText = extractInlineText(rawData.abstract || []);
-  if (abstractText) {
-    currentSection.description_text = abstractText;
-  }
+    for (const sub of NAVIGATION_SEARCH_SUBSECTIONS) {
+      const subUrl = `https://developer.apple.com/design/human-interface-guidelines/${sub.slug}`;
+      console.log(`  -> Rendering subsection: '${sub.title}' (${subUrl})...`);
 
-  const primaryContent = rawData.primaryContentSections && rawData.primaryContentSections[0] 
-    ? rawData.primaryContentSections[0].content || []
-    : [];
+      await page.goto(subUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+      await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1500)));
 
-  const references = rawData.references || {};
+      const extractedSecs = await page.evaluate((subTitle) => {
+        const main = document.querySelector('main, article, div[role="main"]') || document.body;
+        const secList = [];
 
-  function processItems(items, parentHeading = 'Overview') {
-    items.forEach(item => {
-      const itemType = item.type;
-
-      if (itemType === 'heading') {
-        if (currentSection.description_text.trim() || currentSection.guidance.length > 0) {
-          sections.push(currentSection);
-        }
-        const headingText = (item.text || '').trim();
-        currentSection = {
-          section_heading: headingText,
+        let currentSec = {
+          subsection: subTitle,
+          section_heading: 'Overview',
           description_text: '',
           guidance: []
         };
-      } else if (itemType === 'paragraph') {
-        const inline = item.inlineContent || [];
-        const fullText = extractInlineText(inline).trim();
-        if (!fullText) return;
 
-        let hasStrongLead = false;
-        let leadText = '';
-        if (inline.length > 0 && (inline[0].type === 'strong' || inline[0].type === 'emphasis')) {
-          leadText = extractInlineText([inline[0]]).trim();
-          if (leadText.length > 3) {
-            hasStrongLead = true;
-          }
-        }
+        const elements = Array.from(main.querySelectorAll('h2, h3, h4, p, ul, ol, aside'));
 
-        if (hasStrongLead) {
-          const type = classifyGuidance(leadText, fullText);
-          currentSection.guidance.push({
-            type: type,
-            rule: leadText,
-            details: fullText
-          });
-        } else {
-          if (currentSection.description_text) {
-            currentSection.description_text += '\n\n' + fullText;
-          } else {
-            currentSection.description_text = fullText;
-          }
-        }
-      } else if (itemType === 'unorderedList') {
-        const listItems = item.items || [];
-        listItems.forEach(li => {
-          (li.content || []).forEach(lic => {
-            if (lic.type === 'paragraph') {
-              const liText = extractInlineText(lic.inlineContent || []).trim();
-              if (liText) {
-                if (currentSection.description_text) {
-                  currentSection.description_text += '\n- ' + liText;
-                } else {
-                  currentSection.description_text = '- ' + liText;
-                }
+        elements.forEach(el => {
+          const tag = el.tagName.toLowerCase();
+
+          if (['h2', 'h3', 'h4'].includes(tag)) {
+            if (currentSec.description_text.trim() || currentSec.guidance.length > 0) {
+              secList.push(currentSec);
+            }
+            const headingText = el.innerText.trim();
+            currentSec = {
+              subsection: subTitle,
+              section_heading: headingText,
+              description_text: '',
+              guidance: []
+            };
+          } else if (tag === 'p') {
+            const fullText = el.innerText.trim();
+            if (!fullText) return;
+
+            const firstStrong = el.querySelector('strong, b, em');
+            let strongText = firstStrong ? firstStrong.innerText.trim() : '';
+
+            if (strongText && strongText.length > 3 && fullText.startsWith(strongText)) {
+              currentSec.guidance.push({
+                leadText: strongText,
+                fullText: fullText
+              });
+            } else {
+              if (currentSec.description_text) {
+                currentSec.description_text += '\n\n' + fullText;
+              } else {
+                currentSec.description_text = fullText;
               }
             }
-          });
+          } else if (tag === 'ul' || tag === 'ol') {
+            const items = Array.from(el.querySelectorAll(':scope > li'))
+              .map(li => '- ' + li.innerText.trim())
+              .filter(t => t.length > 2);
+            if (items.length > 0) {
+              const listBlock = items.join('\n');
+              if (currentSec.description_text) {
+                currentSec.description_text += '\n\n' + listBlock;
+              } else {
+                currentSec.description_text = listBlock;
+              }
+            }
+          } else if (tag === 'aside') {
+            const asideText = el.innerText.trim();
+            if (asideText) {
+              if (currentSec.description_text) {
+                currentSec.description_text += '\n\n[Note: ' + asideText + ']';
+              } else {
+                currentSec.description_text = '[Note: ' + asideText + ']';
+              }
+            }
+          }
         });
-      } else if (itemType === 'links') {
-        const linkKeys = item.items || [];
-        const linksText = linkKeys.map(k => {
-          const ref = references[k];
-          if (ref) {
-            const title = ref.title || k;
-            const abs = extractInlineText(ref.abstract || []);
-            return `- **${title}**: ${abs}`;
-          }
-          return `- ${k}`;
-        }).join('\n');
 
-        if (linksText) {
-          if (currentSection.description_text) {
-            currentSection.description_text += '\n\n' + linksText;
-          } else {
-            currentSection.description_text = linksText;
-          }
+        if (currentSec.description_text.trim() || currentSec.guidance.length > 0) {
+          secList.push(currentSec);
         }
-      } else if (itemType === 'row') {
-        (item.columns || []).forEach(col => {
-          processItems(col.content || [], parentHeading);
-        });
-      } else if (itemType === 'aside') {
-        const asideName = item.name || 'Note';
-        let asideText = '';
-        (item.content || []).forEach(ac => {
-          if (ac.type === 'paragraph') {
-            asideText += extractInlineText(ac.inlineContent || []).trim() + ' ';
-          }
-        });
-        asideText = asideText.trim();
-        if (asideText) {
-          currentSection.description_text += (currentSection.description_text ? '\n\n' : '') + `[${asideName}: ${asideText}]`;
-        }
-      }
-    });
-  }
 
-  processItems(primaryContent);
+        return secList;
+      }, sub.title);
 
-  // If topicSections exist, list them in Overview or section
-  const topicSections = rawData.topicSections || [];
-  topicSections.forEach(ts => {
-    const topicTitle = ts.title || 'Components';
-    const topicIdentifiers = ts.identifiers || [];
-    const topicText = topicIdentifiers.map(k => {
-      const ref = references[k];
-      if (ref) {
-        const title = ref.title || k;
-        const abs = extractInlineText(ref.abstract || []);
-        return `- **${title}**: ${abs}`;
-      }
-      return `- ${k}`;
-    }).join('\n');
-
-    if (topicText && !currentSection.description_text.includes(topicText)) {
-      if (currentSection.description_text) {
-        currentSection.description_text += `\n\n### ${topicTitle}\n` + topicText;
-      } else {
-        currentSection.description_text = `### ${topicTitle}\n` + topicText;
-      }
+      extractedSecs.forEach(sec => {
+        sec.guidance = (sec.guidance || []).map(g => ({
+          type: classifyGuidance(g.leadText, g.fullText),
+          rule: g.leadText,
+          details: g.fullText
+        }));
+        allSections.push(sec);
+      });
     }
-  });
 
-  if (currentSection.description_text.trim() || currentSection.guidance.length > 0) {
-    sections.push(currentSection);
+    await page.close();
+
+    const structuredOutput = {
+      url: targetUrl,
+      title: "Navigation and search",
+      extracted_at: new Date().toISOString(),
+      rendering_mode: "browser-based",
+      subsections_count: NAVIGATION_SEARCH_SUBSECTIONS.length,
+      sections_count: allSections.length,
+      sections: allSections
+    };
+
+    if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+    fs.writeFileSync(outputFile, JSON.stringify(structuredOutput, null, 2), 'utf-8');
+    console.log(`[Browser Collector] Saved ${allSections.length} sections across 5 subsections to ${outputFile}`);
+  } else {
+    console.log(`[Browser Collector] Rendering '${slug}' (${targetUrl})...`);
+    const page = await browser.newPage();
+    await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+    await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1500)));
+
+    const pageTitle = await page.title();
+
+    const sections = await page.evaluate(() => {
+      const main = document.querySelector('main, article, div[role="main"]') || document.body;
+      const secList = [];
+
+      let currentSec = {
+        section_heading: 'Overview',
+        description_text: '',
+        guidance: []
+      };
+
+      const elements = Array.from(main.querySelectorAll('h2, h3, h4, p, ul, ol, aside'));
+
+      elements.forEach(el => {
+        const tag = el.tagName.toLowerCase();
+
+        if (['h2', 'h3', 'h4'].includes(tag)) {
+          if (currentSec.description_text.trim() || currentSec.guidance.length > 0) {
+            secList.push(currentSec);
+          }
+          const headingText = el.innerText.trim();
+          currentSec = {
+            section_heading: headingText,
+            description_text: '',
+            guidance: []
+          };
+        } else if (tag === 'p') {
+          const fullText = el.innerText.trim();
+          if (!fullText) return;
+
+          const firstStrong = el.querySelector('strong, b, em');
+          let strongText = firstStrong ? firstStrong.innerText.trim() : '';
+
+          if (strongText && strongText.length > 3 && fullText.startsWith(strongText)) {
+            currentSec.guidance.push({
+              leadText: strongText,
+              fullText: fullText
+            });
+          } else {
+            if (currentSec.description_text) {
+              currentSec.description_text += '\n\n' + fullText;
+            } else {
+              currentSec.description_text = fullText;
+            }
+          }
+        } else if (tag === 'ul' || tag === 'ol') {
+          const items = Array.from(el.querySelectorAll(':scope > li'))
+            .map(li => '- ' + li.innerText.trim())
+            .filter(t => t.length > 2);
+          if (items.length > 0) {
+            const listBlock = items.join('\n');
+            if (currentSec.description_text) {
+              currentSec.description_text += '\n\n' + listBlock;
+            } else {
+              currentSec.description_text = listBlock;
+            }
+          }
+        } else if (tag === 'aside') {
+          const asideText = el.innerText.trim();
+          if (asideText) {
+            if (currentSec.description_text) {
+              currentSec.description_text += '\n\n[Note: ' + asideText + ']';
+            } else {
+              currentSec.description_text = '[Note: ' + asideText + ']';
+            }
+          }
+        }
+      });
+
+      if (currentSec.description_text.trim() || currentSec.guidance.length > 0) {
+        secList.push(currentSec);
+      }
+
+      return secList;
+    });
+
+    await page.close();
+
+    sections.forEach(s => {
+      s.guidance = (s.guidance || []).map(g => ({
+        type: classifyGuidance(g.leadText, g.fullText),
+        rule: g.leadText,
+        details: g.fullText
+      }));
+    });
+
+    const structuredOutput = {
+      url: targetUrl,
+      title: pageTitle.replace(/\s*\|.*/, '').trim(),
+      extracted_at: new Date().toISOString(),
+      rendering_mode: "browser-based",
+      sections_count: sections.length,
+      sections: sections
+    };
+
+    if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+    fs.writeFileSync(outputFile, JSON.stringify(structuredOutput, null, 2), 'utf-8');
+    console.log(`[Browser Collector] Saved ${sections.length} sections to ${outputFile}`);
   }
-
-  const structuredOutput = {
-    url: TARGET_URL,
-    title: (rawData.metadata && rawData.metadata.title) || slug,
-    extracted_at: new Date().toISOString(),
-    sections_count: sections.length,
-    sections: sections
-  };
-
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(structuredOutput, null, 2), 'utf-8');
-  console.log(`[Bright Data Collector] Successfully saved structured data (${sections.length} sections) to ${OUTPUT_FILE}`);
 }
 
-runCollector().catch(err => {
-  console.error('[Bright Data Collector] Error:', err);
+async function main() {
+  if (!puppeteer) {
+    throw new Error('Puppeteer package is required for browser-based HIG collector execution.');
+  }
+
+  console.log(`[Browser Collector] Launching browser session...`);
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+
+  const slugsToProcess = targetSlug === 'all' ? HIG_PAGES : [targetSlug];
+
+  for (const slug of slugsToProcess) {
+    await collectPage(browser, slug);
+  }
+
+  await browser.close();
+  console.log(`[Browser Collector] Finished processing all requested HIG pages.`);
+}
+
+main().catch(err => {
+  console.error('[Browser Collector] Error:', err);
   process.exit(1);
 });

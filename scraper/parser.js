@@ -1,12 +1,12 @@
 /**
  * Bright Data Scraper Studio - Parser Code
- * Parses Apple Human Interface Guidelines (HIG) Buttons page HTML / Cheerio DOM.
+ * Parses Apple Human Interface Guidelines (HIG) DOM content.
  * Extracts: section heading, description text, and Do/Don't guidance as structured JSON.
  */
 
-function parseAppleHIGButtons() {
-  const pageTitle = $('title').text().replace(/\s*\|.*/, '').trim() || 'Buttons';
-  const url = 'https://developer.apple.com/design/human-interface-guidelines/buttons';
+function parseAppleHIG() {
+  const pageTitle = $('title').text().replace(/\s*\|.*/, '').trim() || 'Apple HIG';
+  const url = window.location ? window.location.href : 'https://developer.apple.com/design/human-interface-guidelines/';
 
   const sections = [];
   let currentSection = {
@@ -25,7 +25,7 @@ function parseAppleHIGButtons() {
     return "Guidance";
   }
 
-  $('main, article, body').find('h2, h3, h4, p, ul, ol, aside, div.do-dont').each((i, el) => {
+  $('main, article, div[role="main"], body').find('h2, h3, h4, p, ul, ol, aside').each((i, el) => {
     const tagName = el.tagName ? el.tagName.toLowerCase() : '';
     const $el = $(el);
 
@@ -44,7 +44,7 @@ function parseAppleHIGButtons() {
       if (!text) return;
 
       const strongText = $el.find('strong, b, em').first().text().trim();
-      if (strongText && strongText.length > 5) {
+      if (strongText && strongText.length > 3 && text.startsWith(strongText)) {
         const guidanceType = classifyGuidance(strongText);
         currentSection.guidance.push({
           type: guidanceType,
@@ -60,14 +60,14 @@ function parseAppleHIGButtons() {
       }
     } else if (['ul', 'ol'].includes(tagName)) {
       const items = [];
-      $el.find('li').each((_, li) => {
+      $el.find('> li').each((_, li) => {
         const itemText = $(li).text().trim();
         if (itemText) items.push('- ' + itemText);
       });
       if (items.length > 0) {
         const listBlock = items.join('\n');
         if (currentSection.description_text) {
-          currentSection.description_text += '\n' + listBlock;
+          currentSection.description_text += '\n\n' + listBlock;
         } else {
           currentSection.description_text = listBlock;
         }
@@ -75,7 +75,11 @@ function parseAppleHIGButtons() {
     } else if (tagName === 'aside') {
       const asideText = $el.text().trim();
       if (asideText) {
-        currentSection.description_text += '\n\n[Note: ' + asideText + ']';
+        if (currentSection.description_text) {
+          currentSection.description_text += '\n\n[Note: ' + asideText + ']';
+        } else {
+          currentSection.description_text = '[Note: ' + asideText + ']';
+        }
       }
     }
   });
@@ -93,4 +97,4 @@ function parseAppleHIGButtons() {
   };
 }
 
-return parseAppleHIGButtons();
+return parseAppleHIG();

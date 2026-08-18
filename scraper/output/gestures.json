@@ -1,12 +1,13 @@
 {
   "url": "https://developer.apple.com/design/human-interface-guidelines/gestures",
   "title": "Gestures",
-  "extracted_at": "2026-08-17T06:56:24.328Z",
-  "sections_count": 13,
+  "extracted_at": "2026-08-18T04:17:48.128Z",
+  "rendering_mode": "browser-based",
+  "sections_count": 14,
   "sections": [
     {
       "section_heading": "Overview",
-      "description_text": "A gesture is a physical motion that a person uses to directly affect an object in an app or game on their device.\n\nDepending on the device they’re using, people can make gestures on a touchscreen, in the air, or on a range of input devices such as a trackpad, mouse, remote, or game controller that includes a touch surface.\n\nEvery platform supports basic gestures like tap, swipe, and drag. Although the precise movements that make up basic gestures can vary per platform and input device, people are familiar with the underlying functionality of these gestures and expect to use them everywhere. For a list of these gestures, see .",
+      "description_text": "Depending on the device they’re using, people can make gestures on a touchscreen, in the air, or on a range of input devices such as a trackpad, mouse, remote, or game controller that includes a touch surface.\n\nEvery platform supports basic gestures like tap, swipe, and drag. Although the precise movements that make up basic gestures can vary per platform and input device, people are familiar with the underlying functionality of these gestures and expect to use them everywhere. For a list of these gestures, see Standard gestures.",
       "guidance": []
     },
     {
@@ -16,7 +17,7 @@
         {
           "type": "Guidance",
           "rule": "Give people more than one way to interact with your app.",
-          "details": "Give people more than one way to interact with your app. People commonly prefer or need to use other inputs — such as their voice, keyboard, or Switch Control — to interact with their devices. Don’t assume that people can use a specific gesture to perform a given task. For guidance, see ."
+          "details": "Give people more than one way to interact with your app. People commonly prefer or need to use other inputs — such as their voice, keyboard, or Switch Control — to interact with their devices. Don’t assume that people can use a specific gesture to perform a given task. For guidance, see Accessibility."
         },
         {
           "type": "Guidance",
@@ -37,7 +38,7 @@
     },
     {
       "section_heading": "Custom gestures",
-      "description_text": "- Discoverable\n- Straightforward to perform\n- Distinct from other gestures\n- Not the only way to perform an important action in your app or game",
+      "description_text": "- Discoverable\n- Straightforward to perform\n- Distinct from other gestures\n- Not the only way to perform an important action in your app or game\n\nDiscoverable\n\nStraightforward to perform\n\nDistinct from other gestures\n\nNot the only way to perform an important action in your app or game",
       "guidance": [
         {
           "type": "Guidance",
@@ -63,28 +64,28 @@
     },
     {
       "section_heading": "iOS, iPadOS",
-      "description_text": "In addition to the  supported in all platforms, iOS and iPadOS support a few other gestures that people expect.",
+      "description_text": "In addition to the standard gestures supported in all platforms, iOS and iPadOS support a few other gestures that people expect.\n\nGesture\n\nCommon action\n\nThree-finger swipe\n\nInitiate undo (left swipe); initiate redo (right swipe).\n\nThree-finger pinch\n\nCopy selected text (pinch in); paste copied text (pinch out).\n\nFour-finger swipe (iPadOS only)\n\nSwitch between apps.\n\nShake\n\nInitiate undo; initiate redo.",
       "guidance": [
         {
           "type": "Guidance",
           "rule": "Consider allowing simultaneous recognition of multiple gestures if it enhances the experience.",
-          "details": "Consider allowing simultaneous recognition of multiple gestures if it enhances the experience. Although simultaneous gestures are unlikely to be useful in nongame apps, a game might include multiple onscreen controls — such as a joystick and firing buttons — that people can operate at the same time. For guidance on integrating touchscreen input with Apple Pencil input in your iPadOS app, see ."
+          "details": "Consider allowing simultaneous recognition of multiple gestures if it enhances the experience. Although simultaneous gestures are unlikely to be useful in nongame apps, a game might include multiple onscreen controls — such as a joystick and firing buttons — that people can operate at the same time. For guidance on integrating touchscreen input with Apple Pencil input in your iPadOS app, see Apple Pencil and Scribble."
         }
       ]
     },
     {
       "section_heading": "macOS",
-      "description_text": "People primarily interact with macOS using a  and mouse. In addition, they can make  on a Magic Trackpad, Magic Mouse, or a  that includes a touch surface.",
+      "description_text": "People primarily interact with macOS using a keyboard and mouse. In addition, they can make standard gestures on a Magic Trackpad, Magic Mouse, or a game controller that includes a touch surface.",
       "guidance": []
     },
     {
       "section_heading": "tvOS",
-      "description_text": "People expect to use  to navigate tvOS apps and games with a compatible remote, Siri Remote, or  that includes a touch surface. For guidance, see .",
+      "description_text": "People expect to use standard gestures to navigate tvOS apps and games with a compatible remote, Siri Remote, or game controller that includes a touch surface. For guidance, see Remotes.",
       "guidance": []
     },
     {
       "section_heading": "visionOS",
-      "description_text": "visionOS supports two categories of gestures: indirect and direct.\n\nPeople use an indirect gesture by looking at an object to target it, and then manipulating that object from a distance — indirectly — with their hands. For example, a person can look at a button to focus it and select it by quickly tapping their finger and thumb together. Indirect gestures are comfortable to perform at any distance, and let people quickly change focus between different objects and select items with minimal movement.\n\nPeople use a direct gesture to physically touch an interactive object. For example, people can directly type on the visionOS keyboard by tapping the virtual keys. Direct gestures work best when they are within reach. Because people may find it tiring to keep their arms raised for extended periods, direct gestures are best for infrequent use. visionOS also supports direct versions of all standard gestures, allowing people the choice to interact directly or indirectly with any standard component.\n\nHere are the standard direct gestures people use in visionOS; see  for a list of standard indirect gestures.",
+      "description_text": "visionOS supports two categories of gestures: indirect and direct.\n\nPeople use an indirect gesture by looking at an object to target it, and then manipulating that object from a distance — indirectly — with their hands. For example, a person can look at a button to focus it and select it by quickly tapping their finger and thumb together. Indirect gestures are comfortable to perform at any distance, and let people quickly change focus between different objects and select items with minimal movement.\n\nPeople use a direct gesture to physically touch an interactive object. For example, people can directly type on the visionOS keyboard by tapping the virtual keys. Direct gestures work best when they are within reach. Because people may find it tiring to keep their arms raised for extended periods, direct gestures are best for infrequent use. visionOS also supports direct versions of all standard gestures, allowing people the choice to interact directly or indirectly with any standard component.\n\nHere are the standard direct gestures people use in visionOS; see Specifications for a list of standard indirect gestures.\n\nDirect gesture\n\nCommon use\n\nTouch\n\nDirectly select or activate an object.\n\nTouch and hold\n\nOpen a contextual menu.\n\nTouch and drag\n\nMove an object to a new location.\n\nDouble touch\n\nPreview an object or file; select a word in an editing context.\n\nSwipe\n\nReveal actions and controls; dismiss views; scroll.\n\nWith two hands, pinch and drag together or apart\n\nZoom in or out.\n\nWith two hands, pinch and drag in a circular motion\n\nRotate an object.",
       "guidance": [
         {
           "type": "Guidance",
@@ -105,7 +106,7 @@
     },
     {
       "section_heading": "Designing custom gestures in visionOS",
-      "description_text": "If you want to offer a specific interaction for your experience that people can’t perform using an existing system gesture, consider designing a custom gesture. To offer this type of interaction, your app needs to be running in a Full Space, and you must request people’s permission to access information about their hands. For developer guidance, see .",
+      "description_text": "If you want to offer a specific interaction for your experience that people can’t perform using an existing system gesture, consider designing a custom gesture. To offer this type of interaction, your app needs to be running in a Full Space, and you must request people’s permission to access information about their hands. For developer guidance, see Setting up access to ARKit data.",
       "guidance": [
         {
           "type": "Guidance",
@@ -126,7 +127,7 @@
     },
     {
       "section_heading": "Working with system overlays in visionOS",
-      "description_text": "In visionOS 2 and later, people can look at the palm of one hand and use gestures to quickly access system overlays for Home and Control Center. These interactions are available systemwide, and are reserved solely for accessing system overlays.\n\n[Note: The system overlay is the default method of accessing Control Center in visionOS 2 and later. The visionOS 1 behavior (looking upward) remains available as an accessibility setting.]\n\nWhen designing apps and games that use custom gestures or anchor content to a person’s hands, it’s important to take interactions with the system overlays into consideration.\n\n[Note: Apps and games that you built for visionOS 1 defer the system overlay behavior by default. When a person looks at their palm with your app running in a Full Space, the Home indicator won’t appear unless they tap first.]",
+      "description_text": "In visionOS 2 and later, people can look at the palm of one hand and use gestures to quickly access system overlays for Home and Control Center. These interactions are available systemwide, and are reserved solely for accessing system overlays.\n\n[Note: Note\n\nThe system overlay is the default method of accessing Control Center in visionOS 2 and later. The visionOS 1 behavior (looking upward) remains available as an accessibility setting.]\n\nNote\n\nThe system overlay is the default method of accessing Control Center in visionOS 2 and later. The visionOS 1 behavior (looking upward) remains available as an accessibility setting.\n\nWhen designing apps and games that use custom gestures or anchor content to a person’s hands, it’s important to take interactions with the system overlays into consideration.\n\nThe area reserved for interacting with system overlays.\n\nA person looks at their palm to reveal the Home indicator.\n\nA person turns their hand to reveal the status bar, and can tap to open Control Center.\n\nDefault behavior in the Shared Space\n\nDefault behavior in a Full Space\n\nDeferred behavior in a Full Space\n\n[Note: Note\n\nApps and games that you built for visionOS 1 defer the system overlay behavior by default. When a person looks at their palm with your app running in a Full Space, the Home indicator won’t appear unless they tap first.]\n\nNote\n\nApps and games that you built for visionOS 1 defer the system overlay behavior by default. When a person looks at their palm with your app running in a Full Space, the Home indicator won’t appear unless they tap first.",
       "guidance": [
         {
           "type": "Guidance",
@@ -136,7 +137,7 @@
         {
           "type": "Guidance",
           "rule": "Consider deferring the system overlay behavior when designing an immersive app or game.",
-          "details": "Consider deferring the system overlay behavior when designing an immersive app or game. In certain circumstances, you may not want the Home indicator to appear when someone looks at the palm of their hand. For example, a game that uses virtual hands or gloves may want to keep someone within the world of the story, even if they happen to look at their hands from different angles. In such cases, when your app is running in a Full Space, you can choose to require a tap to reveal the Home indicator instead. For developer guidance, see ."
+          "details": "Consider deferring the system overlay behavior when designing an immersive app or game. In certain circumstances, you may not want the Home indicator to appear when someone looks at the palm of their hand. For example, a game that uses virtual hands or gloves may want to keep someone within the world of the story, even if they happen to look at their hands from different angles. In such cases, when your app is running in a Full Space, you can choose to require a tap to reveal the Home indicator instead. For developer guidance, see persistentSystemOverlays(_:)."
         },
         {
           "type": "Do",
@@ -147,7 +148,7 @@
     },
     {
       "section_heading": "Double tap",
-      "description_text": "In watchOS 11 and later, people can use the double-tap gesture to scroll through lists and scroll views, and to advance between vertical tab views. Additionally, you can specify a toggle or button as the primary action in your app, or in your widget or Live Activity when the system displays it in the Smart Stack. Double-tapping in a view with a primary action highlights the control and then performs the action. The system also supports double tap for custom actions that you offer in , where it acts on the first nondestructive action in the notification.",
+      "description_text": "In watchOS 11 and later, people can use the double-tap gesture to scroll through lists and scroll views, and to advance between vertical tab views. Additionally, you can specify a toggle or button as the primary action in your app, or in your widget or Live Activity when the system displays it in the Smart Stack. Double-tapping in a view with a primary action highlights the control and then performs the action. The system also supports double tap for custom actions that you offer in notifications, where it acts on the first nondestructive action in the notification.",
       "guidance": [
         {
           "type": "Don't",
@@ -157,23 +158,28 @@
         {
           "type": "Guidance",
           "rule": "Choose the button that people use most commonly as the primary action in a view.",
-          "details": "Choose the button that people use most commonly as the primary action in a view. Double tap is helpful in a nonscrolling view when it performs the action that people use the most. For example, in a media controls view, you could assign the primary action to the play/pause button. For developer guidance, see  and ."
+          "details": "Choose the button that people use most commonly as the primary action in a view. Double tap is helpful in a nonscrolling view when it performs the action that people use the most. For example, in a media controls view, you could assign the primary action to the play/pause button. For developer guidance, see handGestureShortcut(_:isEnabled:) and primaryAction."
         }
       ]
     },
     {
       "section_heading": "Standard gestures",
-      "description_text": "The system provides APIs that support the familiar gestures people use with their devices, whether they use a touchscreen, an indirect gesture in visionOS, or an input device like a trackpad, mouse, remote, or game controller. For developer guidance, see .\n\nFor guidance on supporting additional gestures and button presses on specific input devices, see , , and .",
+      "description_text": "The system provides APIs that support the familiar gestures people use with their devices, whether they use a touchscreen, an indirect gesture in visionOS, or an input device like a trackpad, mouse, remote, or game controller. For developer guidance, see Gestures.\n\nGesture\n\nSupported in\n\nCommon action\n\nTap\n\niOS, iPadOS, macOS, tvOS, visionOS, watchOS\n\nActivate a control; select an item.\n\nSwipe\n\niOS, iPadOS, macOS, tvOS, visionOS, watchOS\n\nReveal actions and controls; dismiss views; scroll.\n\nDrag\n\niOS, iPadOS, macOS, tvOS, visionOS, watchOS\n\nMove a UI element.\n\nTouch (or pinch) and hold\n\niOS, iPadOS, tvOS, visionOS, watchOS\n\nReveal additional controls or functionality.\n\nDouble tap\n\niOS, iPadOS, macOS, tvOS, visionOS, watchOS\n\nZoom in; zoom out if already zoomed in; perform a primary action on Apple Watch Series 9 and Apple Watch Ultra 2.\n\nZoom\n\niOS, iPadOS, macOS, tvOS, visionOS\n\nZoom a view; magnify content.\n\nRotate\n\niOS, iPadOS, macOS, tvOS, visionOS\n\nRotate a selected item.\n\nFor guidance on supporting additional gestures and button presses on specific input devices, see Pointing devices, Remotes, and Game controls.",
+      "guidance": []
+    },
+    {
+      "section_heading": "Related",
+      "description_text": "Feedback\n\nEyes\n\nPlaying haptics",
       "guidance": []
     },
     {
       "section_heading": "Developer documentation",
-      "description_text": "— SwiftUI\n\n— UIKit",
+      "description_text": "Gestures — SwiftUI\n\nUITouch — UIKit",
       "guidance": []
     },
     {
-      "section_heading": "Videos",
-      "description_text": "- **Enhance your UI animations and transitions**: Explore how to adopt the zoom transition in navigation and presentations to increase the sense of continuity in your app, and learn how to animate UIKit views with SwiftUI animations to make it easier to build animations that feel continuous.\n- **Design for spatial input**: Learn how to design great interactions for eyes and hands. We’ll share the design principles for spatial input, explore best practices around input methods, and help you create spatial experiences that are comfortable, intuitive, and satisfying.",
+      "section_heading": "Change log",
+      "description_text": "Date\n\nChanges\n\nSeptember 9, 2024\n\nAdded guidance for working with system overlays in visionOS and made organizational updates.\n\nSeptember 15, 2023\n\nUpdated specifications to include double tap in watchOS.\n\nJune 21, 2023\n\nChanged page title from Touchscreen gestures and updated to include guidance for visionOS.",
       "guidance": []
     }
   ]

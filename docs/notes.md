@@ -2,7 +2,7 @@
 
 ## Scraper Progress & Datasets
 - [x] **Buttons** (`scraper/output/buttons.json`) - 15 sections extracted & committed (`346c6cd`).
-- [x] **Navigation and search** (`scraper/output/navigation-and-search.json`) - Extracted & committed (`511de7b`).
+- [x] **Navigation and search** (`scraper/output/navigation-and-search.json`) - Re-extracted via browser-based Puppeteer collector across all 5 subsections (43 sections, 62 guidance rules).
 - [x] **Gestures** (`scraper/output/gestures.json`) - 13 sections extracted & committed (`751684c`).
 - [x] **Onboarding** (`scraper/output/onboarding.json`) - 6 sections extracted & committed (`b459194`).
 - [x] **App icons** (`scraper/output/app-icons.json`) - 12 sections extracted & committed (`4021e21`).

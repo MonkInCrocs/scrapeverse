@@ -1,12 +1,13 @@
 {
   "url": "https://developer.apple.com/design/human-interface-guidelines/onboarding",
   "title": "Onboarding",
-  "extracted_at": "2026-08-17T06:56:38.873Z",
-  "sections_count": 6,
+  "extracted_at": "2026-08-18T04:17:51.691Z",
+  "rendering_mode": "browser-based",
+  "sections_count": 7,
   "sections": [
     {
       "section_heading": "Overview",
-      "description_text": "Onboarding can help people get a quick start using your app or game.\n\nIdeally, people can understand your app or game simply by experiencing it, but if onboarding is necessary, design a flow that’s fast, fun, and optional. When available, onboarding occurs after  is complete — it isn’t part of the launch experience.",
+      "description_text": "Ideally, people can understand your app or game simply by experiencing it, but if onboarding is necessary, design a flow that’s fast, fun, and optional. When available, onboarding occurs after launching is complete — it isn’t part of the launch experience.",
       "guidance": []
     },
     {
@@ -21,7 +22,7 @@
         {
           "type": "Guidance",
           "rule": "Consider providing a collection of context-specific tips instead of a single onboarding flow.",
-          "details": "Consider providing a collection of context-specific tips instead of a single onboarding flow. Integrating contextually relevant tips into your experience can help people learn about their current task while they make progress in your app or game. A context-specific tip can also help people learn better because it lets them concentrate on a single action or task before encountering new information. When you have instructional content that refers to a specific area of the interface, display these instructions near that area. For developer guidance, see ."
+          "details": "Consider providing a collection of context-specific tips instead of a single onboarding flow. Integrating contextually relevant tips into your experience can help people learn about their current task while they make progress in your app or game. A context-specific tip can also help people learn better because it lets them concentrate on a single action or task before encountering new information. When you have instructional content that refers to a specific area of the interface, display these instructions near that area. For developer guidance, see TipKit."
         },
         {
           "type": "Guidance",
@@ -52,7 +53,7 @@
         {
           "type": "Don't",
           "rule": "Don’t let large downloads hinder onboarding.",
-          "details": "Don’t let large downloads hinder onboarding. People want to start using your app or game immediately after first launching it, whether they participate in an onboarding flow or skip it. Consider including enough media and other content in your software package to prevent people from having to wait for downloads to complete before they can start interacting with your app or game. For guidance, see ."
+          "details": "Don’t let large downloads hinder onboarding. People want to start using your app or game immediately after first launching it, whether they participate in an onboarding flow or skip it. Consider including enough media and other content in your software package to prevent people from having to wait for downloads to complete before they can start interacting with your app or game. For guidance, see Launching."
         },
         {
           "type": "Don't",
@@ -73,7 +74,7 @@
         {
           "type": "Guidance",
           "rule": "If your app or game needs access to private data or resources before it can function, consider integrating the permission request into your onboarding flow.",
-          "details": "If your app or game needs access to private data or resources before it can function, consider integrating the permission request into your onboarding flow. In this scenario, making the request during your onboarding flow gives you the opportunity to show people why your app or game needs their permission and the benefits of granting it. Otherwise, present a permission request when people first access the specific function that relies on private data or resources. For guidance, see ."
+          "details": "If your app or game needs access to private data or resources before it can function, consider integrating the permission request into your onboarding flow. In this scenario, making the request during your onboarding flow gives you the opportunity to show people why your app or game needs their permission and the benefits of granting it. Otherwise, present a permission request when people first access the specific function that relies on private data or resources. For guidance, see Requesting permission."
         },
         {
           "type": "Do",
@@ -94,8 +95,13 @@
       ]
     },
     {
-      "section_heading": "Videos",
-      "description_text": "- **Discoverable design**: Discover how you can create interactive, memorable experiences to onboard people into your app. We’ll take you through discoverable design practices and learn how you can craft explorable, fun interfaces that help people grasp the possibilities of your app at a glance. We’ll also show you how to apply this methodology to personalize your content and make your app easy to customize.\n- **Designing Award Winning Apps and Games**: Through stories, interviews, and artifacts we will uncover valuable design processes, techniques, and best practices of Apple Design Award winning apps and games.\n- **Love at First Launch**: Engage people from the first moment they open your app, and keep them coming back for more. Learn tips on how to make a compelling first impression, methods for teaching new users about your app, and best practices when asking users for more information.",
+      "section_heading": "Related",
+      "description_text": "Launching\n\nFeedback\n\nOffering help",
+      "guidance": []
+    },
+    {
+      "section_heading": "Change log",
+      "description_text": "Date\n\nChanges\n\nJune 10, 2024\n\nClarified different approaches to onboarding and added a guideline on displaying a splash screen.\n\nJune 21, 2023\n\nUpdated to include guidance for visionOS.",
       "guidance": []
     }
   ]

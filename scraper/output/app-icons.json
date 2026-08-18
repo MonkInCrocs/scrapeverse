@@ -1,17 +1,18 @@
 {
   "url": "https://developer.apple.com/design/human-interface-guidelines/app-icons",
   "title": "App icons",
-  "extracted_at": "2026-08-17T06:57:43.036Z",
-  "sections_count": 12,
+  "extracted_at": "2026-08-18T04:17:55.310Z",
+  "rendering_mode": "browser-based",
+  "sections_count": 14,
   "sections": [
     {
       "section_heading": "Overview",
-      "description_text": "A unique, memorable icon expresses your app’s or game’s purpose and personality and helps people recognize it at a glance.\n\nYour app icon is a crucial aspect of your app’s or game’s branding and user experience. It appears on the Home Screen and in key locations throughout the system, including search results, notifications, system settings, and share sheets. A well-designed app icon conveys your app’s or game’s identity clearly and consistently across all Apple platforms.",
+      "description_text": "[Note: June 8, 2026\n\nRefined guidance for Liquid Glass.]\n\nJune 8, 2026\n\nYour app icon is a crucial aspect of your app’s or game’s branding and user experience. It appears on the Home Screen and in key locations throughout the system, including search results, notifications, system settings, and share sheets. A well-designed app icon conveys your app’s or game’s identity clearly and consistently across all Apple platforms.",
       "guidance": []
     },
     {
       "section_heading": "Layer design",
-      "description_text": "Although you can provide a flattened image for your icon, layers give you the most control over how your icon design is represented. A layered app icon comes together to produce a sense of depth and vitality. On each platform, the system applies visual effects that respond to the environment and people’s interactions.\n\niOS, iPadOS, macOS, and watchOS app icons include a background layer and one or more foreground layers that coalesce to create dimensionality. These icons take on Liquid Glass attributes like specular highlights, refraction, and translucency. These effects automatically adapt with the size of your icon, apply consistently across platforms, and can appear differently between system versions.\n\ntvOS app icons use between two and five layers to create a sense of dynamism as people bring them into focus. When focused, the app icon elevates to the foreground in response to someone’s finger movement on their remote, and gently sways while the surface illuminates. The separation between layers and the use of transparency produce a feeling of depth during the parallax effect.\n\nA visionOS app icon includes a background layer and one or two layers on top, producing a three-dimensional object that subtly expands when people view it. The system enhances the icon’s visual dimensionality by adding shadows that convey a sense of depth between layers and by using the alpha channel of the upper layers to create an embossed appearance.\n\nYou use your favorite design tool to craft the individual foreground layers of your app icon. For iOS, iPadOS, macOS, and watchOS icons, you then import your icon layers into Icon Composer, a design tool included with Xcode and available from the . In Icon Composer, you define the background layer for your icon, adjust your foreground layer placement, apply visual effects like specular highlights and refraction, annotate for default, dark, and mono appearance variants, test and preview your icon across system versions, and export your icon for use in Xcode. For additional guidance, see .\n\nFor tvOS and visionOS app icons, you add your icon layers directly to an image stack in Xcode to form your complete icon. You can download Parallax Previewer and Parallax Exporter plug-in from  to preview and test parallax visual effects. For developer guidance, see .",
+      "description_text": "Although you can provide a flattened image for your icon, layers give you the most control over how your icon design is represented. A layered app icon comes together to produce a sense of depth and vitality. On each platform, the system applies visual effects that respond to the environment and people’s interactions.\n\niOS, iPadOS, macOS, and watchOS app icons include a background layer and one or more foreground layers that coalesce to create dimensionality. These icons take on Liquid Glass attributes like specular highlights, refraction, and translucency. These effects automatically adapt with the size of your icon, apply consistently across platforms, and can appear differently between system versions.\n\ntvOS app icons use between two and five layers to create a sense of dynamism as people bring them into focus. When focused, the app icon elevates to the foreground in response to someone’s finger movement on their remote, and gently sways while the surface illuminates. The separation between layers and the use of transparency produce a feeling of depth during the parallax effect.\n\nA visionOS app icon includes a background layer and one or two layers on top, producing a three-dimensional object that subtly expands when people view it. The system enhances the icon’s visual dimensionality by adding shadows that convey a sense of depth between layers and by using the alpha channel of the upper layers to create an embossed appearance.\n\nYou use your favorite design tool to craft the individual foreground layers of your app icon. For iOS, iPadOS, macOS, and watchOS icons, you then import your icon layers into Icon Composer, a design tool included with Xcode and available from the Apple Developer website. In Icon Composer, you define the background layer for your icon, adjust your foreground layer placement, apply visual effects like specular highlights and refraction, annotate for default, dark, and mono appearance variants, test and preview your icon across system versions, and export your icon for use in Xcode. For additional guidance, see Creating your app icon using Icon Composer.\n\nIcon Composer\n\nFor tvOS and visionOS app icons, you add your icon layers directly to an image stack in Xcode to form your complete icon. You can download Parallax Previewer and Parallax Exporter plug-in from Apple Design Resources to preview and test parallax visual effects. For developer guidance, see Configuring your app icon using an asset catalog.",
       "guidance": [
         {
           "type": "Do",
@@ -37,7 +38,7 @@
     },
     {
       "section_heading": "Icon shape",
-      "description_text": "An app icon’s shape varies based on a platform’s visual language. In iOS, iPadOS, and macOS, icons are square, and the system applies masking to produce rounded corners that precisely match the curvature of other rounded interface elements throughout the system and the bezel of the physical device itself. In tvOS, icons are rectangular, also with concentric edges. In visionOS and watchOS, icons are square and the system applies circular masking.",
+      "description_text": "An app icon’s shape varies based on a platform’s visual language. In iOS, iPadOS, and macOS, icons are square, and the system applies masking to produce rounded corners that precisely match the curvature of other rounded interface elements throughout the system and the bezel of the physical device itself. In tvOS, icons are rectangular, also with concentric edges. In visionOS and watchOS, icons are square and the system applies circular masking.\n\n- iOS, iPadOS, macOS\n- tvOS\n- visionOS, watchOS",
       "guidance": [
         {
           "type": "Guidance",
@@ -47,13 +48,13 @@
         {
           "type": "Guidance",
           "rule": "Keep primary content centered to avoid truncation when the system adjusts corners or applies masking.",
-          "details": "Keep primary content centered to avoid truncation when the system adjusts corners or applies masking. Pay particular attention to centering content in visionOS and watchOS icons. To help with icon placement, use the grids in the app icon production templates, which you can find in ."
+          "details": "Keep primary content centered to avoid truncation when the system adjusts corners or applies masking. Pay particular attention to centering content in visionOS and watchOS icons. To help with icon placement, use the grids in the app icon production templates, which you can find in Apple Design Resources."
         }
       ]
     },
     {
       "section_heading": "Design",
-      "description_text": "Embrace simplicity in your icon design. Simple icons tend to be easiest for people to understand and recognize. An icon with fine visual features might look busy when rendered with system-provided shadows and highlights, and details may be hard to discern at smaller sizes. Find a concept or element that captures the essence of your app or game, make it the core idea of your icon, and express it in a simple, unique way with a minimal number of shapes. Prefer a simple background, such as a solid color or gradient, that puts the emphasis on your primary design — you don’t need to fill the entire icon canvas with content.",
+      "description_text": "Embrace simplicity in your icon design. Simple icons tend to be easiest for people to understand and recognize. An icon with fine visual features might look busy when rendered with system-provided shadows and highlights, and details may be hard to discern at smaller sizes. Find a concept or element that captures the essence of your app or game, make it the core idea of your icon, and express it in a simple, unique way with a minimal number of shapes. Prefer a simple background, such as a solid color or gradient, that puts the emphasis on your primary design — you don’t need to fill the entire icon canvas with content.\n\nThe Podcasts app icon\n\nThe Home app icon",
       "guidance": [
         {
           "type": "Do",
@@ -100,7 +101,7 @@
     },
     {
       "section_heading": "Appearances",
-      "description_text": "In iOS, iPadOS, and macOS, people can choose whether their Home Screen app icons are default, dark, clear, or tinted in appearance. For example, someone may want to personalize their app icon appearance to complement their wallpaper. You can design app icon variants for every appearance variant, and the system automatically generates variants you don’t provide.\n\n[Note: Alternate app icons in iOS and iPadOS require their own dark, clear, and tinted variants. As with your default app icon, all alternate and variant icons are subject to app review and must adhere to the .]",
+      "description_text": "In iOS, iPadOS, and macOS, people can choose whether their Home Screen app icons are default, dark, clear, or tinted in appearance. For example, someone may want to personalize their app icon appearance to complement their wallpaper. You can design app icon variants for every appearance variant, and the system automatically generates variants you don’t provide.\n\n[Note: Note\n\nAlternate app icons in iOS and iPadOS require their own dark, clear, and tinted variants. As with your default app icon, all alternate and variant icons are subject to app review and must adhere to the App Review Guidelines.]\n\nNote\n\nAlternate app icons in iOS and iPadOS require their own dark, clear, and tinted variants. As with your default app icon, all alternate and variant icons are subject to app review and must adhere to the App Review Guidelines.",
       "guidance": [
         {
           "type": "Guidance",
@@ -115,7 +116,7 @@
         {
           "type": "Do",
           "rule": "Use your light app icon as the basis for your dark icon.",
-          "details": "Use your light app icon as the basis for your dark icon. Choose complementary colors that reflect the default design, and avoid excessively bright images. Color backgrounds generally offer the greatest contrast in dark icons. For guidance, see ."
+          "details": "Use your light app icon as the basis for your dark icon. Choose complementary colors that reflect the default design, and avoid excessively bright images. Color backgrounds generally offer the greatest contrast in dark icons. For guidance, see Dark Mode."
         },
         {
           "type": "Guidance",
@@ -170,12 +171,22 @@
     },
     {
       "section_heading": "Specifications",
-      "description_text": "The layout, size, style, and appearances of app icons vary by platform.\n\nThe system automatically scales your icon to produce smaller variants that appear in certain locations, such as Settings and notifications.\n\nApp icons support the following color spaces:\n- sRGB (color)\n- Gray Gamma 2.2 (grayscale)\n- Display P3 (wide-gamut color in iOS, iPadOS, macOS, tvOS, and watchOS only)",
+      "description_text": "The layout, size, style, and appearances of app icons vary by platform.\n\nPlatform\n\nLayout shape\n\nIcon shape after system masking\n\nLayout size\n\nStyle\n\nAppearances\n\niOS, iPadOS, macOS\n\nSquare\n\nRounded rectangle (square)\n\n1024x1024 px\n\nLayered\n\nDefault, dark, clear light, clear dark, tinted light, tinted dark\n\ntvOS\n\nRectangle (landscape)\n\nRounded rectangle (rectangular)\n\n800x480 px\n\nLayered (Parallax)\n\nN/A\n\nvisionOS\n\nSquare\n\nCircular\n\n1024x1024 px\n\nLayered (3D)\n\nN/A\n\nwatchOS\n\nSquare\n\nCircular\n\n1088x1088 px\n\nLayered\n\nN/A\n\nThe system automatically scales your icon to produce smaller variants that appear in certain locations, such as Settings and notifications.\n\nApp icons support the following color spaces:\n\n- sRGB (color)\n- Gray Gamma 2.2 (grayscale)\n- Display P3 (wide-gamut color in iOS, iPadOS, macOS, tvOS, and watchOS only)\n\nsRGB (color)\n\nGray Gamma 2.2 (grayscale)\n\nDisplay P3 (wide-gamut color in iOS, iPadOS, macOS, tvOS, and watchOS only)",
       "guidance": []
     },
     {
-      "section_heading": "Videos",
-      "description_text": "- **Say hello to the new look of app icons**: Get an overview of the new app icon appearances for iOS, iPadOS, and macOS, including light and dark tints, and clear options. Learn how to use frostiness and translucency to make your app icon more vibrant, dynamic, and expressive, and find out how to ensure your icon works well with specular highlights.\n- **Create icons with Icon Composer**: Learn how to use Icon Composer to make updated app icons for iOS, iPadOS, macOS, and watchOS. Find out how to export assets from your design tool of choice, add them to Icon Composer, apply real-time glass properties and other effects, and preview and adjust for different platforms and appearance modes.",
+      "section_heading": "Related",
+      "description_text": "Apple Design Resources\n\nIcon Composer\n\nIcons\n\nImages\n\nDark Mode",
+      "guidance": []
+    },
+    {
+      "section_heading": "Developer documentation",
+      "description_text": "Creating your app icon using Icon Composer\n\nConfiguring your app icon using an asset catalog",
+      "guidance": []
+    },
+    {
+      "section_heading": "Change log",
+      "description_text": "Date\n\nChanges\n\nJune 8, 2026\n\nRefined guidance for Liquid Glass.\n\nJune 9, 2025\n\nUpdated guidance to reflect layered icons, consistency across platforms, and best practices for Liquid Glass.\n\nJune 10, 2024\n\nAdded guidance for creating dark and tinted app icon variants for iOS and iPadOS.\n\nJanuary 31, 2024\n\nClarified platform availability for alternate app icons.\n\nJune 21, 2023\n\nUpdated to include guidance for visionOS.\n\nSeptember 14, 2022\n\nAdded specifications for Apple Watch Ultra.",
       "guidance": []
     }
   ]
